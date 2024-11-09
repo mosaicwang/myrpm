@@ -1,43 +1,5 @@
 # RPM软件
 
-## 验证签名
-1.下载公钥 :
-```
-gpg2 --recv-keys 1344FCF80D7A201155D73B083133BF069F26C5D0
-```
-或 导入公钥文件
-```
-gpg2 --import --import-options restore mosaicwang-pubkey.asc
-```
-2.查看导入的公钥
-```
-gpg2 --list-keys
-```
-输出中应该有类似的如下内容 :
-```
-pub   rsa4096 2024-10-16 [SC]
-      1344FCF80D7A201155D73B083133BF069F26C5D0	# 这是公钥的指纹
-uid           [ unknown] mosaicwang (pass for centos) <mosaicwang@gmail.com>
-sub   rsa4096 2024-10-16 [E]
-
-```
-3.以验证`openssl-3.4.0-1.el7.x86_64.rpm`为例 :
-将 `openssl-3.4.0-1.el7.x86_64.rpm` 和 `openssl-3.4.0-1.el7.x86_64.rpm.asc` 下载到某一目录下，然后执行如下命令 :
-```
-gpg2 --trust-model tofu --verify openssl-3.4.0-1.el7.x86_64.rpm.asc
-```
-输出类似如下 :
-```
-gpg: assuming signed data in 'openssl-3.4.0-1.el7.x86_64.rpm'
-gpg: Signature made Sat 09 Nov 2024 05:34:17 PM CST
-gpg:                using RSA key 1344FCF80D7A201155D73B083133BF069F26C5D0	# 公钥的指纹。必须与步骤2输出的指纹一致
-gpg: Good signature from "mosaicwang (pass for centos) <mosaicwang@gmail.com>" [marginal] # 显示签名正确
-gpg: mosaicwang@gmail.com: Verified 1 signatures in the past 0 seconds.
-     Encrypted 0 messages.
-
-```
-
-
 # 2024.11.7
 
 ## 1.openssl
@@ -141,4 +103,41 @@ openssh-clients-9.9p1-1.el9.x86_64.rpm
 
 ```
 dnf install ./*.rpm
+```
+
+# 验证签名
+1.下载公钥 :
+```
+gpg2 --recv-keys 1344FCF80D7A201155D73B083133BF069F26C5D0
+```
+或 导入公钥文件
+```
+gpg2 --import --import-options restore mosaicwang-pubkey.asc
+```
+2.查看导入的公钥
+```
+gpg2 --list-keys
+```
+输出中应该有类似的如下内容 :
+```
+pub   rsa4096 2024-10-16 [SC]
+      1344FCF80D7A201155D73B083133BF069F26C5D0	# 这是公钥的指纹
+uid           [ unknown] mosaicwang (pass for centos) <mosaicwang@gmail.com>
+sub   rsa4096 2024-10-16 [E]
+
+```
+3.以验证`openssl-3.4.0-1.el7.x86_64.rpm`为例 :
+将 `openssl-3.4.0-1.el7.x86_64.rpm` 和 `openssl-3.4.0-1.el7.x86_64.rpm.asc` 下载到某一目录下，然后执行如下命令 :
+```
+gpg2 --trust-model tofu --verify openssl-3.4.0-1.el7.x86_64.rpm.asc
+```
+输出类似如下 :
+```
+gpg: assuming signed data in 'openssl-3.4.0-1.el7.x86_64.rpm'
+gpg: Signature made Sat 09 Nov 2024 05:34:17 PM CST
+gpg:                using RSA key 1344FCF80D7A201155D73B083133BF069F26C5D0	# 公钥的指纹。必须与步骤2输出的指纹一致
+gpg: Good signature from "mosaicwang (pass for centos) <mosaicwang@gmail.com>" [marginal] # 显示签名正确
+gpg: mosaicwang@gmail.com: Verified 1 signatures in the past 0 seconds.
+     Encrypted 0 messages.
+
 ```
