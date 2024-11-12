@@ -1,5 +1,41 @@
 # RPM软件
 
+# 2024.11.12
+## 1.Linux内核
+- 版本 : `6.6.60`
+- 源码下载 : `https://www.kernel.org/`
+- 摘要 :
+
+```
+kernel-6.6.60-1.x86_64.rpm
+- SHA1 : 5376359792c88a8e64d76dc2ef0476969407c8a2
+- MD5 : a5a1bbfb7af33fff1cafad314ec89cc4
+
+kernel-devel-6.6.60-1.x86_64.rpm
+- SHA1 : 35d42f3f59a6ba848f4520387be48686bd5ab15d
+- MD5 : 01e8f3c7af9f73d5335c0c8031a59e04
+
+kernel-headers-6.6.60-1.x86_64.rpm
+- SHA1 : 0ed125af2a30e09e662359b657c5e3e221090ce7
+- MD5 : 500b37784f22bf5b1fc805be3e79d43d
+```
+- 适用操作系统 : `Centos 7` 和 `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+Centos7 :
+rpm -ivh kernel-6.6.60-1.x86_64.rpm
+
+Centos 9
+dnf install ./kernel-6.6.60-1.x86_64.rpm
+```
+- 其他 : **能适用于BIOS或UEFI引导的服务器**
+
 # 2024.11.7
 
 ## 1.openssl
