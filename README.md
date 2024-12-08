@@ -1,5 +1,38 @@
 # RPM软件
 
+# 2024.12.8
+## 1.Linux内核
+- 版本 : `6.12.3`. (`6.12`是LTS版本)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+Centos 9
+dnf install ./kernel-6.6.60-1.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.12.3-1.x86_64.rpm
+- SHA1 : dffe3d62ace2857c6c420ae984328d02d76bb6fd
+- MD5 : 54a4052e0e2c7d55d7d2aef784c72b34
+
+kernel-devel-6.12.3-1.x86_64.rpm
+- SHA1 : dfd4b1d3c49fc8c4074457427814fb4b87ef624c
+- MD5 : c0b752a86a4f1a5e9ad24b712ab2e5ac
+
+kernel-headers-6.12.3-1.x86_64.rpm
+- SHA1 : 7a9735eeaa215ddae388b34c695513828a18a4c6
+- MD5 : 2d10cb6993e7546833363248d791225c
+```
+- 其他 : **能适用于BIOS或UEFI引导的服务器**
+
 # 2024.11.12
 ## 1.Linux内核
 - 版本 : `6.6.60`
