@@ -1,5 +1,43 @@
 # RPM软件
 
+# 2024.12.17
+## 1.curl
+- 版本 : `8.11.1`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+./configure --disable-static \
+    --enable-hidden-symbols \
+    --enable-ipv6 \
+    --enable-ldaps \
+    --enable-manual \
+    --enable-threaded-resolver \
+    --with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt \
+    --with-gssapi${KRB5_PREFIX} \
+    --with-libidn \
+    --with-libssh2 \
+    --with-ssl --with-nss \
+    --with-gssapi --with-nghttp2 --with-winidn
+```
+- 安装
+
+```
+# Centos 9
+dnf install ./curl-8.11.1-1.el9.x86_64.rpm ./libcurl-8.11.1-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+curl-8.11.1-1.el9.x86_64.rpm
+- SHA1 : b49daef496123a67550488b7beb47e1105a876de
+- MD5 : 2d5955194b3cc75a5e8ceb50f8abd9c7
+
+libcurl-8.11.1-1.el9.x86_64.rpm
+- SHA1 : c92514fecc88447511fad23554762fa777d2f7d3
+- MD5 : bfe91a47223254ffe0caed0ea2f212bc
+```
+
 # 2024.12.8
 ## 1.Linux内核
 - 版本 : `6.12.3`. (`6.12`是LTS版本)
