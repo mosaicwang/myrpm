@@ -1,24 +1,45 @@
 # RPM软件
 
-# 2024.12.17
+# 2024.12.18
 ## 1.curl
 - 版本 : `8.11.1`
 - 适用操作系统 : `Centos 9 stream`
 - 编译参数 :
 
 ```
-./configure --disable-static \
-    --enable-hidden-symbols \
+./configure --enable-manual \
+    --disable-static \
+    --enable-hsts \
     --enable-ipv6 \
-    --enable-ldaps \
-    --enable-manual \
+    --enable-symbol-hiding \
     --enable-threaded-resolver \
-    --with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt \
-    --with-gssapi${KRB5_PREFIX} \
-    --with-libidn \
+    --without-zstd \
+    --with-gssapi \
+    --with-libidn2 \
+    --with-nghttp2 \
+    --with-ssl --with-ca-bundle=%{_sysconfdir}/pki/ca-trust/extracted/pem/tls-ca-bundle.pem \
+    --with-zsh-functions-dir \
+    --enable-dict \
+    --enable-gopher  \
+    --enable-imap \
+    --enable-ldap \
+    --enable-ldaps   \
+    --enable-mqtt \
+    --enable-ntlm \
+    --enable-ntlm-wb \
+    --enable-pop3 \
+    --enable-rtsp \
+    --enable-smb \
+    --enable-smtp \
+    --enable-telnet  \
+    --enable-tftp \
+    --enable-tls-srp \
+    --enable-websockets  \
+    --with-brotli \
+    --with-libpsl \
     --with-libssh2 \
-    --with-ssl --with-nss \
-    --with-gssapi --with-nghttp2 --with-winidn
+    --with-nss \
+    --with-winidn
 ```
 - 安装
 
@@ -30,12 +51,12 @@ dnf install ./curl-8.11.1-1.el9.x86_64.rpm ./libcurl-8.11.1-1.el9.x86_64.rpm
 
 ```
 curl-8.11.1-1.el9.x86_64.rpm
-- SHA1 : b49daef496123a67550488b7beb47e1105a876de
-- MD5 : 2d5955194b3cc75a5e8ceb50f8abd9c7
+- SHA1 : 47d43aefd5083c709f9386b278bc4e5374cf50f9
+- MD5 : 116ef1b1980e5859c494025628b1e1e2
 
 libcurl-8.11.1-1.el9.x86_64.rpm
-- SHA1 : c92514fecc88447511fad23554762fa777d2f7d3
-- MD5 : bfe91a47223254ffe0caed0ea2f212bc
+- SHA1 : c9b39f1a3b2fc56a0d140ed15606a92b4bfa0743
+- MD5 : f390f30d0c3de106ff4f6cc5cbdae07c
 ```
 
 # 2024.12.8
