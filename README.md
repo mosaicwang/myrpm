@@ -1,5 +1,95 @@
 # RPM软件
 
+# 2024.12.27
+## 1.linux内核
+### 1.1 Linux内核6.12.6
+- 版本 : `6.12.6`. (`6.12`是LTS版本)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+# Centos 9
+dnf install ./kernel-6.12.6-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.12.6-1.el9.x86_64.rpm
+- SHA1 : 41fe5e93bccba3d7d8fc051ca039f40e451e8a9d
+- MD5 : 5541938e9c5d871c2007c70b43fbb064
+- 大小 : 761 MB (798,499,327 字节)
+
+kernel-devel-6.12.6-1.el9.x86_64.rpm
+- SHA1 : a6f741b74a6fdb563f6850be7a3f744b43b93d63
+- MD5 : cf7e7d3f262825082dbe4ee870bb8f97
+- 大小 : 9.60 MB (10,077,148 字节)
+
+kernel-headers-6.12.6-1.el9.x86_64.rpm
+- SHA1 : 9b92ef307b3a27a98f102293099e4505c81eb1d3
+- MD5 : 0a7dbc710554a1285564222a3adcff43
+- 大小 : 1.47 MB (1,545,225 字节)
+```
+### 1.2 Linux内核6.6.67
+- 版本 : `6.6.67`. (`6.6`是LTS版本)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 7` 和 `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+# Centos7 :
+rpm -ivh kernel-6.6.67-1.el7.x86_64.rpm
+
+# Centos 9
+dnf install ./kernel-6.6.67-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+# Centos 7
+
+kernel-6.6.67-1.el7.x86_64.rpm
+- SHA1 : bed7fd7a477cf9bc3924ab8c0a94092310781b73
+- MD5 : 9ca2527bfde695fbec5085aabf2972c0
+- 大小 : 64.1 MB (67,285,668 字节)
+
+kernel-devel-6.6.67-1.el7.x86_64.rpm
+- SHA1 : 01617b6ec444fdc57d0824e260cf69a17957ee91
+- MD5 : 2fcdd2d6f69fe9ec5ff1f4d89a5b40fc
+- 大小 : 11.3 MB (11,901,688 字节)
+
+kernel-headers-6.6.67-1.el7.x86_64.rpm
+- SHA1 : 3570f76ce2f33ddcf121208d9627ba21632a6212
+- MD5 : 76bdb88830bd08156e26ad84c083a647
+- 大小 : 1.53 MB (1,605,980 字节)
+
+# Centos 9 stream
+
+kernel-6.6.67-1.el9.x86_64.rpm
+- SHA1 : 58707bbed685bc165af42a0a383a532ee7c19512
+- MD5 : 85cae0f5491dee998b24672ef989625d
+- 大小 : 652 MB (684,546,464 字节)
+
+kernel-devel-6.6.67-1.el9.x86_64.rpm
+- SHA1 : f71e72ce13641363231876a2092317b521c03477
+- MD5 : 1865bebb35fcd6dbd1f452a30c451bcd
+- 大小 : 10.1 MB (10,688,461 字节)
+
+kernel-headers-6.6.67-1.el9.x86_64.rpm
+- SHA1 : a31dc74f4de6b66403094f69b72d68c87825335c
+- MD5 : fe0bc8c91a2e206ed49a822b474208ad
+- 大小 : 1.39 MB (1,463,149 字节)
+```
 # 2024.12.18
 ## 1.curl
 - 版本 : `8.11.1`
@@ -72,7 +162,7 @@ make olddefconfig
 - 安装
 
 ```
-Centos 9
+# Centos 9
 dnf install ./kernel-6.6.60-1.x86_64.rpm
 ```
 - 摘要 :
@@ -120,10 +210,10 @@ make olddefconfig
 - 安装
 
 ```
-Centos7 :
+# Centos7 :
 rpm -ivh kernel-6.6.60-1.x86_64.rpm
 
-Centos 9
+# Centos 9
 dnf install ./kernel-6.6.60-1.x86_64.rpm
 ```
 - 其他 : **能适用于BIOS或UEFI引导的服务器**
@@ -171,10 +261,10 @@ openssl-devel-3.4.0-1.el9.x86_64.rpm
 - 安装
 
 ```
-Centos7 :
+# Centos7 :
 rpm -ivh openssl-3.4.0-1.el7.x86_64.rpm --nodeps --force
 
-Centos 9
+# Centos 9
 dnf install ./openssl-3.4.0-1.el9.x86_64.rpm
 ```
 - 依赖 :
