@@ -1,5 +1,163 @@
 # RPM软件
 
+# 2024.12.31
+## 1.systemd v257.1
+- 版本 : `v257.1`
+- 源码下载 : `https://github.com/systemd/systemd`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+```
+CONFIGURE_OPTS=(
+        -Dmode="release"
+        -Dsysvinit-path=/etc/rc.d/init.d
+        -Drc-local=/etc/rc.d/rc.local
+        -Dntp-servers='0.%{ntpvendor}.pool.ntp.org 1.%{ntpvendor}.pool.ntp.org 2.%{ntpvendor}.pool.ntp.org 3.%{ntpvendor}.pool.ntp.org'
+        -Ddns-servers=61.139.2.69
+        -Duser-path=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
+        -Dservice-watchdog=
+        -Ddev-kvm-mode=0666
+        -Dkmod=enabled
+        -Dxkbcommon=enabled
+        -Dblkid=enabled
+        -Dfdisk=enabled
+        -Dseccomp=enabled
+        -Dima=true
+        -Dselinux=enabled
+        -Dbpf-framework=enabled
+        -Dapparmor=disabled
+        -Dpolkit=enabled
+        -Dxz=enabled
+        -Dzlib=enabled
+        -Dbzip2=enabled
+        -Dlz4=enabled
+        -Dzstd=enabled
+        -Dpam=enabled
+        -Dacl=enabled
+        -Dsmack=true
+        -Dopenssl=enabled
+        -Dcryptolib=openssl
+        -Dp11kit=enabled
+        -Dgcrypt=disabled
+        -Daudit=enabled
+        -Delfutils=enabled
+        -Dlibcryptsetup=enabled
+        -Delfutils=enabled
+        -Dpwquality=enabled
+        -Dqrencode=disabled
+        -Dgnutls=enabled
+        -Dmicrohttpd=enabled
+        -Dvmspawn=enabled
+        -Dlibidn2=enabled
+        -Dlibiptc=disabled
+        -Dlibcurl=enabled
+        -Dlibfido2=enabled
+        -Dxenctrl=disabled
+        -Defi=true
+        -Dtpm=true
+        -Dtpm2=enabled
+        -Dhwdb=true
+        -Dsysusers=true
+        -Dstandalone-binaries=true
+        -Ddefault-kill-user-processes=false
+        -Dfirst-boot-full-preset=true
+        -Ddefault-network=true
+        -Dtests=unsafe
+        -Dinstall-tests=true
+        -Dtty-gid=5
+        -Dusers-gid=100
+        -Dnobody-user=nobody
+        -Dnobody-group=nobody
+        -Dcompat-mutable-uid-boundaries=true
+        -Dsplit-bin=true
+        -Db_ndebug=false
+        -Dman=enabled
+        -Dversion-tag=%{version}-%{release}        
+        -Dshared-lib-tag=%{version}-%{release}
+        -Dfallback-hostname="localhost"
+        -Ddefault-dnssec=no
+        -Ddefault-dns-over-tls=no        
+        -Ddefault-mdns=no
+        -Ddefault-llmnr=resolve        
+        -Dstatus-unit-format-default=combined        
+        -Ddefault-timeout-sec=45
+        -Ddefault-user-timeout-sec=45
+        -Dconfigfiledir=/usr/lib
+        -Doomd=true
+        -Dadm-gid=4
+        -Daudio-gid=63
+        -Dcdrom-gid=11
+        -Ddialout-gid=18
+        -Ddisk-gid=6
+        -Dinput-gid=104
+        -Dkmem-gid=9
+        -Dkvm-gid=36
+        -Dlp-gid=7
+        -Drender-gid=105
+        -Dsgx-gid=106
+        -Dtape-gid=33
+        -Dtty-gid=5
+        -Dusers-gid=100
+        -Dutmp-gid=22
+        -Dvideo-gid=39
+        -Dwheel-gid=10
+        -Dsystemd-journal-gid=190
+        -Dsystemd-network-uid=192
+        -Dsystemd-resolve-uid=193        
+        -Dbootloader=enabled
+        -Dukify=enabled
+```
+- 安装 :
+
+```
+dnf install ./systemd-257.1-1.el9.x86_64.rpm ./systemd-libs-257.1-1.el9.x86_64.rpm \
+./systemd-pam-257.1-1.el9.x86_64.rpm ./systemd-rpm-macros-257.1-1.el9.x86_64.rpm \
+./systemd-udev-257.1-1.el9.x86_64.rpm
+```
+- 查看版本 :
+
+```
+systemctl --version
+```
+输出如下 :
+```
+systemd 257 (257.1-1.el9)
++PAM +AUDIT +SELINUX -APPARMOR +IMA +IPE +SMACK +SECCOMP -GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN -IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT -QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +SYSVINIT +LIBARCHIVE
+```
+- 摘要 :
+
+```
+systemd-257.1-1.el9.x86_64.rpm
+- SHA1 : 96ba253a4319cd08b4cb9488aecf2ac291648cae
+- MD5 : a27c6010dda07967410b68522b2f8b1d
+- 大小 : 8.90 MB (9,339,825 字节)
+
+systemd-devel-257.1-1.el9.x86_64.rpm
+- SHA1 : 566757df1d7f4412dafb46b5f9b4cc9db675a169
+- MD5 : 156b14c848358140e19cc5eb2bc0aaa1
+- 大小 : 515 KB (527,923 字节)
+
+systemd-libs-257.1-1.el9.x86_64.rpm
+- SHA1 : 952a65f5f65d7ddac4acb16e7701623ffba8e81b
+- MD5 : 7d7126f08f1e364c1e8e3f16d6e0a376
+- 大小 : 920 KB (942,960 字节)
+
+systemd-pam-257.1-1.el9.x86_64.rpm
+- SHA1 : bdc8b1733efe88c7b57cc155bc7b0c2a98102175
+- MD5 : 5fffc140c7d5b1be8fb03e1c0295087a
+- 大小 : 460 KB (471,493 字节)
+
+systemd-rpm-macros-257.1-1.el9.x86_64.rpm
+- SHA1 : a22334caea75bf1e9027a4792caae103764e1d74
+- MD5 : 50e71a7fa0e0691393b33dfd9c20a384
+- 大小 : 8.01 KB (8,208 字节)
+
+systemd-udev-257.1-1.el9.x86_64.rpm
+- SHA1 : 433e3a638044d11ed785fdfe0e58090467490498
+- MD5 : 36fb77b083634acbf878928a2b568baf
+- 大小 : 1.16 MB (1,226,389 字节)
+
+```
+
 # 2024.12.27
 ## 1.linux内核
 ### 1.1 Linux内核6.12.6
