@@ -1,5 +1,91 @@
 # RPM软件
 
+# 2025.1.19
+## 1.rsync 3.4.1
+- 版本 : `3.4.1`
+- 源码下载 : `https://github.com/RsyncProject/rsync`
+- 适用操作系统 : `Centos 9 stream`
+- 解决如下安全漏洞 :
+
+```
+CVE-2024-12084：CVSS 评分 9.8 分，由于校验和长度处理不当导致 rsync 中的缓冲区堆栈溢出
+
+CVE-2024-12085：CVSS 评分 7.5，通过未初始化的堆栈内容泄露信息
+
+CVE-2024-12086：CVSS 评分 6.1，rsync 服务器泄露任意客户端文件
+
+CVE-2024-12087：CVSS 评分 6.5，rsync 中的路径遍历漏洞
+
+CVE-2024-12088：CVSS 评分 6.5，–safe-links 选项绕过导致路径遍历
+
+CVE-2024-12747：CVSS 评分 5.6，处理符号链接时 rsync 中的竞争条件
+
+以上 6 个安全漏洞中的前 5 个都是由谷歌云漏洞研究团队发现的，第 6 个漏洞则是由安全研究人员 Aleksei Gorban 发现的，目前这些漏洞都已经在 rsync 3.4.0 版中修复。
+```
+- 编译参数 : 缺省
+
+```
+./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu \
+--program-prefix= --disable-dependency-tracking --prefix=/usr \
+--exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc \
+--datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 \
+--libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib \
+--mandir=/usr/share/man --infodir=/usr/share/info
+```
+- 安装 :
+依赖 `xxhash-libs`包
+
+```
+dnf install ./rsync-3.4.1-1.x86_64.rpm
+
+输出如下 :
+=====================================================================================================================================
+ Package                         Architecture               Version                           Repository                        Size
+=====================================================================================================================================
+Upgrading:
+ rsync                           x86_64                     3.4.1-1                           @commandline                     495 k
+Installing dependencies:
+ xxhash-libs                     x86_64                     0.8.2-1.el9                       appstream                         37 k
+
+```
+- 查看版本 :
+
+```
+rsync --version
+```
+输出如下 :
+```
+rsync  version 3.4.1  protocol version 32
+Copyright (C) 1996-2025 by Andrew Tridgell, Wayne Davison, and others.
+Web site: https://rsync.samba.org/
+Capabilities:
+    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,
+    socketpairs, symlinks, symtimes, hardlinks, hardlink-specials,
+    hardlink-symlinks, IPv6, atimes, batchfiles, inplace, append, ACLs,
+    xattrs, optional secluded-args, iconv, prealloc, stop-at, no crtimes
+Optimizations:
+    SIMD-roll, no asm-roll, openssl-crypto, no asm-MD5
+Checksum list:
+    xxh128 xxh3 xxh64 (xxhash) md5 md4 sha1 none
+Compress list:
+    zstd lz4 zlibx zlib none
+Daemon auth list:
+    sha512 sha256 sha1 md5 md4
+```
+- 摘要 :
+
+```
+rsync-3.4.1-1.x86_64.rpm
+- SHA1 : cfadc91046cd1b5e97dc35b2573bbf0b3e6d7a7f
+- MD5 : de8324ba3079dcf987d6290b1b5403ae
+- 大小 : 494 KB (506,707 字节)
+
+rsync-ssl-daemon-3.4.1-1.x86_64.rpm
+- SHA1 : fbf623513d925d4518054622563bd496140c7a4e
+- MD5 : 50698260911529de3fa7c434299a64c5
+- 大小 : 7.44 KB (7,628 字节)
+
+```
 # 2024.12.31
 ## 1.systemd v257.1
 - 版本 : `v257.1`
