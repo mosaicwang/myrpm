@@ -1,5 +1,123 @@
 # RPM软件
 
+# 2025.1.23
+## 1.xxHash 0.8.3
+编译`rsync 3.4.0及以上版本`需要`xxHash 0.8.0及以上版本`的开发包
+- 版本 : `0.8.3`
+- 源码下载 : `https://github.com/Cyan4973/xxHash`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 : 缺省
+
+```
+make prefix=/usr/local libdir=/usr/local/lib
+
+```
+- 安装 :
+
+```
+dnf install ./xxHash-0.8.3-1.el9.x86_64.rpm ./xxHash-devel-0.8.3-1.el9.x86_64.rpm
+```
+- 查看版本 :
+
+```
+xxhsum --version
+```
+输出如下 :
+```
+xxhsum 0.8.3 by Yann Collet
+compiled as 64-bit x86 autoVec (AVX2 detected) little endian with GCC 11.5.0 20240719 (Red Hat 11.5.0-2)
+```
+- 摘要 :
+
+```
+xxHash-0.8.3-1.el9.x86_64.rpm
+- SHA1 : 8112e214bd65eb995bd4e9e442f35b8e5e7d94a0
+- MD5 : 36ebaf12cc60c837b49ff679724c26c0
+- 大小 : 71.8 KB (73,553 字节)
+
+xxHash-devel-0.8.3-1.el9.x86_64.rpm
+- SHA1 : d86b2cb527788113a652f306ff2f63ec46fd86bb
+- MD5 : 4784c6328298ee532773d92b3451fb7e
+- 大小 : 84.4 KB (86,438 字节)
+
+xxHash-static-0.8.3-1.el9.x86_64.rpm
+- SHA1 : ef8996ae3f747c49ff8f28536b685e4ffd7b74e3
+- MD5 : 9c01740885beed7fd6fe186633bbada7
+- 大小 : 21.5 KB (22,041 字节)
+
+```
+
+## 2.rsync 3.4.1
+主要是更新rpm包名
+- 版本 : `3.4.1`
+- 源码下载 : `https://github.com/RsyncProject/rsync`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 : 缺省
+
+```
+./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu \
+--program-prefix= --disable-dependency-tracking --prefix=/usr \
+--exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc \
+--datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 \
+--libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib \
+--mandir=/usr/share/man --infodir=/usr/share/info
+```
+- 安装 :
+依赖 `xxhash-libs`包
+
+```
+dnf install ./rsync-3.4.1-1.el9.x86_64.rpm
+
+输出如下 :
+=====================================================================================================================================
+ Package                         Architecture               Version                           Repository                        Size
+=====================================================================================================================================
+Upgrading:
+ rsync                           x86_64                     3.4.1-1.el9                           @commandline                     495 k
+Installing dependencies:
+ xxhash-libs                     x86_64                     0.8.2-1.el9                       appstream                         37 k
+
+```
+- 查看版本 :
+
+```
+rsync --version
+```
+输出如下 :
+```
+rsync  version 3.4.1  protocol version 32
+Copyright (C) 1996-2025 by Andrew Tridgell, Wayne Davison, and others.
+Web site: https://rsync.samba.org/
+Capabilities:
+    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,
+    socketpairs, symlinks, symtimes, hardlinks, hardlink-specials,
+    hardlink-symlinks, IPv6, atimes, batchfiles, inplace, append, ACLs,
+    xattrs, optional secluded-args, iconv, prealloc, stop-at, no crtimes
+Optimizations:
+    SIMD-roll, no asm-roll, openssl-crypto, no asm-MD5
+Checksum list:
+    xxh128 xxh3 xxh64 (xxhash) md5 md4 sha1 none
+Compress list:
+    zstd lz4 zlibx zlib none
+Daemon auth list:
+    sha512 sha256 sha1 md5 md4
+```
+- 摘要 :
+
+```
+rsync-3.4.1-1.el9.x86_64.rpm
+- SHA1 : 96e5f83c79df8b2242d665f3bce7710ae1ed9059
+- MD5 : d2a7daa986a14d44749a061a373ae330
+- 大小 : 494 KB (506,743 字节)
+
+rsync-ssl-daemon-3.4.1-1.x86_64.rpm
+- SHA1 : ed1b863b7de9e6d3469a31039a8d2a305f981d2d
+- MD5 : 81e3503c33a6281a4d1de79cce6d88c0
+- 大小 : 7.44 KB (7,628 字节)
+
+```
+
+
 # 2025.1.19
 ## 1.rsync 3.4.1
 - 版本 : `3.4.1`
