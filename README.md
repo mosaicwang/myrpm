@@ -69,7 +69,39 @@ kernel-headers-6.12.11-1.el9.x86_64.rpm
 - MD5 : 0c6570640d684f817f50e88f667abc0b
 - 大小 : 1.47 MB (1,545,097 字节)
 ```
+## kernel 6.13
+- 版本 : `6.13`. (2015年1月20日发布.目前是最新版)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
 
+```
+make olddefconfig
+```
+- 安装
+
+```
+# Centos 9
+dnf install ./kernel-6.13-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.13-1.el9.x86_64.rpm
+- SHA1 : 72b7d917ca6a3b73820dd357a0db468a3fd8ab75
+- MD5 : 2dcee8ef01e640223f059cdb15e0b90b
+- 大小 : 67.2 MB (70,514,480 字节)
+
+kernel-devel-6.13-1.el9.x86_64.rpm
+- SHA1 : cb3b89417efcd21710487b9a7a083793f31dc4f3
+- MD5 : d9005eb0af555746bf7ea86ff18bef2d
+- 大小 : 9.61 MB (10,078,132 字节)
+
+kernel-headers-6.13-1.el9.x86_64.rpm
+- SHA1 : 460804150b3c5cbf6f4d9295528f173e56cd7899
+- MD5 : bb773777eeb6f123004dd355de957c78
+- 大小 : 1.47 MB (1,545,097 字节)
+```
 # 2025.1.23
 ## 1.xxHash 0.8.3
 编译`rsync 3.4.0及以上版本`需要`xxHash 0.8.0及以上版本`的开发包
