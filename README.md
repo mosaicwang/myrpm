@@ -1,5 +1,75 @@
 # RPM软件
 
+# 2025.1.25
+## 1.kernel 6.6.74
+- 版本 : `6.6.74`. (`6.6`是LTS版本)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+# Centos 9
+dnf install ./kernel-6.6.74-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+# Centos 9 stream
+
+kernel-6.6.74-1.el9.x86_64.rpm
+- SHA1 : d24551dbe3ad6dffed36aa1dcfdbe28a4b5e51c7
+- MD5 : e431770a1312e7269ae183f1f54809b5
+- 大小 : 64.1 MB (67,314,508 字节)
+
+kernel-devel-6.6.74-1.el9.x86_64.rpm
+- SHA1 : efabd4b126a8ec80aee5a7e3b328c16e45be1147
+- MD5 : 46e8eb1af7a78a552dc2cb9fdbe036d7
+- 大小 : 10.1 MB (10,688,999 字节)
+
+kernel-headers-6.6.74-1.el9.x86_64.rpm
+- SHA1 : 753ed3af8ce711c0ffbbd09a00fca1a54e6e64b8
+- MD5 : 20cb144db8a49e5e0493b5700d4157f4
+- 大小 : 1.39 MB (1,463,367 字节)
+```
+## kernel 6.12.11
+- 版本 : `6.12.11`. (`6.12`是LTS版本)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+# Centos 9
+dnf install ./kernel-6.12.11-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.12.11-1.el9.x86_64.rpm
+- SHA1 : a52e2c59568dd494a4d2db413322062cbb252ae5
+- MD5 : fd67184aec78ba7501c37f00b70ca144
+- 大小 : 67.1 MB (70,415,744 字节)
+
+kernel-devel-6.12.11-1.el9.x86_64.rpm
+- SHA1 : e12a6731dcad34ee492f41e6c3323e31da1ae7a4
+- MD5 : 01f5a6ca0ee054a1fe94cbdc93d519ea
+- 大小 : 9.61 MB (10,078,132 字节)
+
+kernel-headers-6.12.11-1.el9.x86_64.rpm
+- SHA1 : ab14c646848549193e3b4a52d2ed3279bca0a658
+- MD5 : 0c6570640d684f817f50e88f667abc0b
+- 大小 : 1.47 MB (1,545,097 字节)
+```
+
 # 2025.1.23
 ## 1.xxHash 0.8.3
 编译`rsync 3.4.0及以上版本`需要`xxHash 0.8.0及以上版本`的开发包
