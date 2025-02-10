@@ -1,5 +1,115 @@
 # RPM软件
 
+# 2025.2.10
+## 1.xxHash 0.8.3
+专门为`centos 7`编译
+编译`rsync 3.4.0及以上版本`需要`xxHash 0.8.0及以上版本`的开发包
+- 版本 : `0.8.3`
+- 源码下载 : `https://github.com/Cyan4973/xxHash`
+- 适用操作系统 : `Centos 7`
+- 编译参数 : 缺省
+
+```
+make prefix=/usr/local libdir=/usr/local/lib
+
+```
+- 安装 :
+
+```
+yum install ./xxHash-0.8.3-1.el7.x86_64.rpm ./xxHash-devel-0.8.3-1.el7.x86_64.rpm
+```
+- 查看版本 :
+
+```
+xxhsum --version
+```
+输出如下 :
+```
+xxhsum 0.8.3 by Yann Collet 
+compiled as 64-bit x86 autoVec (SSE2 detected) little endian with GCC 4.8.5 20150623 (Red Hat 4.8.5-44) 
+```
+- 摘要 :
+
+```
+xxHash-0.8.3-1.el7.x86_64.rpm
+- SHA1 : dac35f38b82aea2b5d157820ff2046b59db5b807
+- MD5 : 5fd3bb9e8ea56640c7fffd9b46592936
+- 大小 : 56.2 KB (57,640 字节)
+
+xxHash-devel-0.8.3-1.el7.x86_64.rpm
+- SHA1 : c09998845598c04f46b4f216b16a5b68cd79a96d
+- MD5 : 4d7bb4ad106744753ee041bb7dbbee71
+- 大小 : 82.1 KB (84,164 字节)
+
+xxHash-static-0.8.3-1.el7.x86_64.rpm
+- SHA1 : 87aac2bb72e6e574442d32351178ad0f94ea9d05
+- MD5 : f4a7d05eaf30f43657610618e1b428be
+- 大小 : 15.8 KB (16,204 字节)
+
+```
+
+## 2.rsync 3.4.1
+专门为`centos 7`编译
+- 版本 : `3.4.1`
+- 源码下载 : `https://github.com/RsyncProject/rsync`
+- 适用操作系统 : `Centos 7`
+- 编译参数 : 缺省
+
+```
+./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu \
+--program-prefix= --disable-dependency-tracking --prefix=/usr \
+--exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc \
+--datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 \
+--libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib \
+--mandir=/usr/share/man --infodir=/usr/share/info
+```
+- 安装 :
+依赖 `xxhash、xxhash-libs、libzstd和lz4`以及 `openssl3.x`包
+
+**注意**:我的编译环境已经升级到`openssl 3.x`,因此需安装`openssl 3.0.12`的包。
+由于centos7自带的是`openssl 1.0.2k`,因此升级到`openssl 3.x`属于重大升级，需测试是否影响其他应用程序
+
+```
+yum install xxhash xxhash-libs libzstd lz4
+yum install ./openssl-3.0.12-1.el7.x86_64.rpm
+yum install ./rsync-3.4.1-1.el7.x86_64.rpm
+
+```
+- 查看版本 :
+
+```
+rsync --version
+```
+输出如下 :
+```
+rsync  version 3.4.1  protocol version 32
+Copyright (C) 1996-2025 by Andrew Tridgell, Wayne Davison, and others.
+Web site: https://rsync.samba.org/
+Capabilities:
+    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,
+    socketpairs, symlinks, symtimes, hardlinks, hardlink-specials,
+    hardlink-symlinks, IPv6, atimes, batchfiles, inplace, append, no ACLs,
+    xattrs, optional secluded-args, iconv, prealloc, stop-at, no crtimes
+Optimizations:
+    no SIMD-roll, no asm-roll, openssl-crypto, no asm-MD5
+Checksum list:
+    xxh128 xxh3 xxh64 (xxhash) md5 md4 sha1 none
+Compress list:
+    zstd lz4 zlibx zlib none
+Daemon auth list:
+    sha512 sha256 sha1 md5 md4
+
+```
+- 摘要 :
+
+```
+rsync-3.4.1-1.el7.x86_64.rpm
+- SHA1 : 9c7192ef1d38b405b6a7a6edbff9992fc7a71325
+- MD5 : a6f0ca9a7eed910bf20cd183c0ccf571
+- 大小 : 444 KB (454,732 字节)
+
+```
+
 # 2025.1.25
 ## 1.kernel 6.6.74
 - 版本 : `6.6.74`. (`6.6`是LTS版本)
