@@ -1,5 +1,82 @@
 # RPM软件
 
+# 2025.2.15 重新编译openssl 3.4.0
+- 版本 : `3.4.0`
+- 源码下载 :
+
+```
+https://openssl-library.org/source/index.html
+或
+https://github.com/openssl/openssl/releases
+```
+- 摘要 :
+
+```
+# For Centos 7
+openssl-3.4.0-1.el7.x86_64.rpm
+- MD5 : 1e724ca08571fb71abf30e566148c1be
+
+openssl-devel-3.4.0-1.el7.x86_64.rpm
+- MD5 : 3b73314c322aed2f68aeffe6713dc5bd
+
+openssl-3.4.0-1.el9.x86_64.rpm
+- SHA1 : 050b183132e7781b0a6499ec0b67ebff226f8b07
+- MD5 : aa75fe95fe3cae78faa9b109c6aceb13
+
+openssl-libs-3.4.0-1.el7.x86_64.rpm
+- MD5 : eaac625b94fe3c23c77548c52718173c
+
+# For Centos 9 stream
+openssl-3.4.0-1.el9.x86_64.rpm
+- MD5 : 9302f04d4f24df3a39bb9095f8c9c69c
+
+openssl-devel-3.4.0-1.el9.x86_64.rpm
+- MD5 : d54f20b604acf17c3c0a94be742a5766
+
+openssl-libs-3.4.0-1.el9.x86_64.rpm
+- MD5 : 0aa9987c22571727dd0b23f8979f5db6
+``` 
+
+- 适用操作系统 : `Centos 7` 和 `Centos 9 stream`
+- 编译参数 :
+
+```
+./Configure --prefix=/usr/openssl-3.4.0 \
+ --libdir=lib64 \
+ threads \
+ zlib \
+ -fPIC \
+ enable-md2 \
+ enable-rfc3779 enable-camellia enable-seed \
+ enable-ec_nistp_64_gcc_128 \
+ enable-ktls \
+ enable-pie \
+ enable-zstd \
+ --with-rand-seed=getrandom
+
+说明 :
+- 其中enable-md2为运行系统服务NetworkManager所必需(针对Centos9)
+
+```
+- Release Notes : https://github.com/openssl/openssl/blob/openssl-3.4.0/NEWS.md
+- 安装
+
+```
+# Centos7 :
+# 安装依赖包 :
+yum install libzstd perl-File-BaseDir perl-Getopt-Simple perl-IO-Handle-Util perl-WWW-Curl perl-PerlIO-utf8_strict perl-Test-Vars perl-Test-Warnings
+
+rpm -ivh openssl-3.4.0-1.el7.x86_64.rpm openssl-libs-3.4.0-1.el7.x86_64.rpm --nodeps --force
+
+# Centos 9
+# 安装依赖包
+dnf install perl-WWW-Curl
+
+rpm -ivh openssl-libs-3.4.0-1.el9.x86_64.rpm openssl-3.4.0-1.el7.x86_64.rpm --nodeps --force
+```
+
+- 遗留问题 : 暂不支持通过`dnf install`命令安装。与`crypto-policies`包有冲突
+
 # 2025.2.10
 ## 1.xxHash 0.8.3
 专门为`centos 7`编译
