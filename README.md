@@ -75,6 +75,8 @@ dnf install perl-WWW-Curl
 rpm -ivh openssl-libs-3.4.0-1.el9.x86_64.rpm openssl-3.4.0-1.el7.x86_64.rpm --nodeps --force
 ```
 
+- 遗留问题 : 暂不支持通过`dnf install`命令安装。与`crypto-policies`包有冲突
+
 # 2025.2.10
 ## 1.xxHash 0.8.3
 专门为`centos 7`编译
