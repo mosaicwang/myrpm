@@ -70,7 +70,7 @@ rpm -ivh openssl-3.4.0-1.el7.x86_64.rpm openssl-libs-3.4.0-1.el7.x86_64.rpm --no
 
 # Centos 9
 # 安装依赖包
-dnf install perl-WWW-Curl
+dnf install perl-WWW-Curl lksctp-tools
 
 rpm -ivh openssl-libs-3.4.0-1.el9.x86_64.rpm openssl-3.4.0-1.el7.x86_64.rpm --nodeps --force
 ```
