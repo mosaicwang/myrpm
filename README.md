@@ -1,5 +1,112 @@
 # RPM软件
 
+# 2025.2.18 重新编译openssl 3.4.0
+
+重新编译的原因是在解决`无法使用dnf安装RPM包`的过程中，找到了官方的编译选项。
+通过这些选项编译的版本信息（`openssl version -a`）与官方RPM包显示的信息一致.因此将新编译的包的`Release`设置为`2`
+
+新的编译选项仅适用于`Centos 9`
+- 版本 : `3.4.0`
+- 源码下载 :
+
+```
+https://openssl-library.org/source/index.html
+或
+https://github.com/openssl/openssl/releases
+```
+- 摘要 :
+
+```
+# For Centos 7
+openssl-3.4.0-1.el7.x86_64.rpm
+- MD5 : 1e724ca08571fb71abf30e566148c1be
+
+openssl-devel-3.4.0-1.el7.x86_64.rpm
+- MD5 : 3b73314c322aed2f68aeffe6713dc5bd
+
+openssl-3.4.0-1.el9.x86_64.rpm
+- SHA1 : 050b183132e7781b0a6499ec0b67ebff226f8b07
+- MD5 : aa75fe95fe3cae78faa9b109c6aceb13
+
+openssl-libs-3.4.0-1.el7.x86_64.rpm
+- MD5 : eaac625b94fe3c23c77548c52718173c
+
+# For Centos 9 stream Release 1
+openssl-3.4.0-1.el9.x86_64.rpm
+- MD5 : 66d6a7072c53c3b585ded2366d8e09d0
+
+openssl-devel-3.4.0-1.el9.x86_64.rpm
+- MD5 : 67ef62bc4c767c4055e1229ce6e414c3
+
+openssl-libs-3.4.0-1.el9.x86_64.rpm
+- MD5 : 6c6bc1f5ef20cff1046424df966de946
+
+# For Centos 9 stream Release 2
+openssl-3.4.0-2.el9.x86_64.rpm
+- MD5 : 93e19c24e3da60e5fe26d4c4bb14f888
+
+openssl-devel-3.4.0-2.el9.x86_64.rpm
+- MD5 : c08706cb0e07eb8bd01fe2a78c885c6b
+
+openssl-libs-3.4.0-2.el9.x86_64.rpm
+- MD5 : ec050546dd201e86ff246a9cf19bad08
+``` 
+
+- 适用操作系统 : `Centos 7` 和 `Centos 9 stream`
+- 编译参数 :
+
+```
+# For Release 1 and Centos 7
+./Configure --prefix=/usr/openssl-3.4.0 \
+ --libdir=lib64 \
+ threads \
+ zlib \
+ -fPIC \
+ enable-md2 \
+ enable-rfc3779 enable-camellia enable-seed \
+ enable-ec_nistp_64_gcc_128 \
+ enable-ktls \
+ enable-pie \
+ enable-zstd \
+ --with-rand-seed=getrandom
+
+说明 :
+- 其中enable-md2为运行系统服务NetworkManager所必需(针对Centos9)
+
+# For Release 2
+
+sslarch=%{_os}-%{_target_cpu}
+%define fips %{version}-%{srpmhash}
+
+./Configure \
+--prefix=/usr/openssl-3.4.0 --openssldir=%{_sysconfdir}/pki/tls enable-ec_nistp_64_gcc_128 \
+ zlib enable-camellia enable-seed enable-rfc3779 enable-sctp \
+ enable-cms enable-md2 enable-rc5 enable-ktls enable-fips\
+ no-mdc2 no-ec2m no-sm2 no-sm4 enable-buildtest-c++\
+ shared  ${sslarch} $RPM_OPT_FLAGS '-DDEVRANDOM="\"/dev/urandom\"" -DREDHAT_FIPS_VERSION="\"%{fips}\""'\
+ -DSYSTEM_CIPHERS_FILE=%{_sysconfdir}/crypto-policies/back-ends/openssl.config \
+ -Wl,--allow-multiple-definition
+
+```
+- Release Notes : https://github.com/openssl/openssl/blob/openssl-3.4.0/NEWS.md
+- 安装
+
+```
+# Centos7 :
+# 安装依赖包 :
+yum install libzstd perl-File-BaseDir perl-Getopt-Simple perl-IO-Handle-Util perl-WWW-Curl perl-PerlIO-utf8_strict perl-Test-Vars perl-Test-Warnings
+
+rpm -ivh openssl-3.4.0-1.el7.x86_64.rpm openssl-libs-3.4.0-1.el7.x86_64.rpm --nodeps --force
+
+# Centos 9
+# 安装依赖包
+dnf install perl-WWW-Curl lksctp-tools
+
+rpm -ivh openssl-libs-3.4.0-1.el9.x86_64.rpm openssl-3.4.0-1.el7.x86_64.rpm --nodeps --force
+```
+
+- 遗留问题 : 暂不支持通过`dnf install`命令安装。与`crypto-policies`包有冲突
+
 # 2025.2.15 重新编译openssl 3.4.0
 - 版本 : `3.4.0`
 - 源码下载 :
