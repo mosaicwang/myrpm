@@ -1,5 +1,60 @@
 # RPM软件
 
+# 2025.2.21 编译openssh 9.9p2
+解决 openssh漏洞`CVE-2025-26465` 和 `CVE-2025-26466`
+- 版本 : `9.9p2`
+- 源码下载 :
+
+```
+https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/
+或
+https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
+```
+- 摘要 :
+
+```
+openssh-9.9p2-1.2.el9.x86_64.rpm
+- MD5 : f317f9b025c0cdbf4a8ee217f15f13b1
+
+openssh-server-9.9p2-1.2.el9.x86_64.rpm
+- MD5 : 387ac64818cc198f6a44bf1a3f584466
+
+openssh-clients-9.9p2-1.2.el9.x86_64.rpm
+- MD5 : d949eb37bb6711f789388d0063ffeb1c
+```
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+%configure \
+	--sysconfdir=%{_sysconfdir}/ssh \
+	--libexecdir=%{_libexecdir}/openssh \
+	--datadir=%{_datadir}/openssh \
+	--with-default-path=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin \
+	--with-superuser-path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin \
+	--with-privsep-path=%{_datadir}/empty.sshd \
+	--disable-strip \
+	--without-zlib-version-check \
+	--with-ipaddr-display \
+	--with-pie=no \
+	--without-hardening `# The hardening flags are configured by system` \
+	--with-systemd \
+	--with-default-pkcs11-provider=yes \
+	--with-security-key-builtin=yes \
+	--with-pam \
+	--with-selinux --with-audit=linux \
+	--with-sandbox=seccomp_filter \
+	--without-kerberos5 \	
+	--with-libedit
+```
+- Release Notes : https://www.openssh.com/txt/release-9.9
+- 安装
+
+```
+dnf install ./*.rpm
+```
+安装完成后,会重新生成主机密钥,因此重新登录时会提示新的主机指纹
+
 # 2025.2.18 重新编译openssl 3.4.0
 
 重新编译的原因是在解决`无法使用dnf安装RPM包`的过程中，找到了官方的编译选项。
