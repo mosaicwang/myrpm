@@ -1,6 +1,6 @@
 # RPM软件
 
-# 2025.2.21 编译openssh 9.9p2
+# 2025.2.22 openssh 9.9p2
 解决 openssh漏洞`CVE-2025-26465` 和 `CVE-2025-26466`
 - 版本 : `9.9p2`
 - 源码下载 :
@@ -13,14 +13,14 @@ https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
 - 摘要 :
 
 ```
-openssh-9.9p2-1.2.el9.x86_64.rpm
-- MD5 : f317f9b025c0cdbf4a8ee217f15f13b1
+openssh-9.9p2-2.el9.x86_64.rpm
+- MD5 : 0eed924344c1b658f8a13cf436643a6c
 
-openssh-server-9.9p2-1.2.el9.x86_64.rpm
-- MD5 : 387ac64818cc198f6a44bf1a3f584466
+openssh-server-9.9p2-2.el9.x86_64.rpm
+- MD5 : bdaa145571d45dbc39cbde2339433add  
 
-openssh-clients-9.9p2-1.2.el9.x86_64.rpm
-- MD5 : d949eb37bb6711f789388d0063ffeb1c
+openssh-clients-9.9p2-2.el9.x86_64.rpm
+- MD5 : 1a83cc372307310871ac42fc73ca5984
 ```
 - 适用操作系统 : `Centos 9 stream`
 - 编译参数 :
@@ -53,7 +53,7 @@ openssh-clients-9.9p2-1.2.el9.x86_64.rpm
 ```
 dnf install ./*.rpm
 ```
-安装完成后,会重新生成主机密钥,因此重新登录时会提示新的主机指纹
+安装完成后,会重新生成主机密钥,因此重新登录时会提示新的主机指纹.
 
 # 2025.2.18 重新编译openssl 3.4.0
 
