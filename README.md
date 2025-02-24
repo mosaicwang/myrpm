@@ -1,5 +1,76 @@
 # RPM软件
 
+# 2025.2.24 重新编译rsync 3.4.1
+重新为`centos 7` 和 `Centos 9`编译
+- 版本 : `3.4.1`
+- 源码下载 : `https://github.com/RsyncProject/rsync`
+- 适用操作系统 : `Centos 7` 和 `Centos 9`
+- 编译参数 : 缺省
+
+```
+./configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info \
+--with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared \
+--enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit \
+--disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id \
+--with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto \
+--enable-plugin --enable-initfini-array --disable-libgcj \
+--with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install \
+--with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install \
+--enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+```
+- 安装 :
+Centos 7需要安装`EPEL仓库`的`xxhash-libs`
+Centos 9需要安装`EPEL仓库`的`xxhash-libs`
+
+```
+# Centos 7
+yum install ./rsync-3.4.1-1.el7.x86_64.rpm
+
+# Centos 9
+dnf install ./rsync-3.4.1-1.el7.x86_64.rpm
+
+```
+- 查看版本 :
+
+```
+rsync --version
+```
+输出如下 :
+```
+rsync  version 3.4.1  protocol version 32
+Copyright (C) 1996-2025 by Andrew Tridgell, Wayne Davison, and others.
+Web site: https://rsync.samba.org/
+Capabilities:
+    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,
+    socketpairs, symlinks, symtimes, hardlinks, hardlink-specials,
+    hardlink-symlinks, IPv6, atimes, batchfiles, inplace, append, no ACLs,
+    xattrs, optional secluded-args, iconv, prealloc, stop-at, no crtimes
+Optimizations:
+    no SIMD-roll, no asm-roll, openssl-crypto, no asm-MD5
+Checksum list:
+    xxh128 xxh3 xxh64 (xxhash) md5 md4 sha1 none
+Compress list:
+    zstd lz4 zlibx zlib none
+Daemon auth list:
+    sha512 sha256 sha1 md5 md4
+
+```
+- 摘要 :
+
+```
+# Centos 7
+rsync-3.4.1-1.el7.x86_64.rpm
+- MD5 : d70b0b48137aeeac30befe75ba6a8bf2
+- 大小 : 889 KB (910,740 字节)
+
+# Centos 9
+rsync-3.4.1-1.el9.x86_64.rpm
+- MD5 : 52d2e286c9a61fb42487d82fed446657
+
+rsync-daemon-3.4.1-1.el9.noarch.rpm
+- MD5 : 2341d7f27177caf3915de91836e3e0d5
+
+```
 # 2025.2.22 openssh 9.9p2
 解决 openssh漏洞`CVE-2025-26465` 和 `CVE-2025-26466`
 - 版本 : `9.9p2`
