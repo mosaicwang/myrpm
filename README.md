@@ -1,5 +1,14 @@
 # RPM软件
 
+# 2025.3.6 VMware Workstation Pro 17.6.3
+VMware Workstation Pro 17.6.3
+- 文件名 : `VMware-workstation-full-17.6.3-24583834.exe(401.43 MB)`
+- Build Number: `24583834`
+- 发行日期 : `Release Date : Mar 04, 2025`
+- SHA2 : `d7c04b4dd1e6bf551693897d4805e99c45198a830c6361d9af8267b40906857b`
+- MD5 : `de592b18a39513e3414f197ec1a4cb1c`
+- 解决的漏洞 : `CVE-2025-22224、CVE-2025-22225 和 CVE-2025-22226`
+
 # 2025.2.24 重新编译rsync 3.4.1
 重新为`centos 7` 和 `Centos 9`编译
 - 版本 : `3.4.1`
