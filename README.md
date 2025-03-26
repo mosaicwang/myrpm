@@ -1,5 +1,109 @@
 # RPM软件
 
+# 2025.3.26 编译Linux内核 6.6、6.12和6.13
+
+## 1.Linux-kernel 6.6.84
+
+- 版本 : `6.6.84`. (`6.6`是LTS版本)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.6.84-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.6.84-1.el9.x86_64.rpm
+- SHA1 : 4a6b514673a1ea4e4fb4babddac3331252027d93
+- MD5 : 2f4011ad6e7419b24df47e76ab246117
+- 大小 : 64.2 MB (67,339,084 字节)
+
+kernel-devel-6.6.84-1.el9.x86_64.rpm
+- SHA1 : efff019b664208c2b5517ca166895f54b65ed151
+- MD5 : ffde92c9df49d3a83018be755f855a76
+- 大小 : 10.1 MB (10,688,375 字节)
+
+kernel-headers-6.6.84-1.el9.x86_64.rpm
+- SHA1 : fd9bf0359261b78c42b99fc9c6c28674b1f40617
+- MD5 : c47420ecb3524fb4b858e0c2ca2991aa
+- 大小 : 1.39 MB (1,463,357 字节)
+```
+
+## 2.Linux-kernel 6.12.20
+
+- 版本 : `6.12.20`. (`6.12`是LTS版本)
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.12.20-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.12.20-1.el9.x86_64.rpm
+- SHA1 : e8f4b0f68793a1d5dab619212d8584cfaf67a45d
+- MD5 : 253ce049f93000958afa2ebd1352f357
+- 大小 : 67.1 MB (70,384,680 字节)
+
+kernel-devel-6.12.20-1.el9.x86_64.rpm
+- SHA1 : a6d2dc461e4cb396f9d5daabf70ba2068670b708
+- MD5 : 7f6fc3b62f8380dc4a26c3a0994c6b49
+- 大小 : 9.61 MB (10,078,584 字节)
+
+kernel-headers-6.12.20-1.el9.x86_64.rpm
+- SHA1 : a69adca1cc385cee7512953de8efbb3a48b6929a
+- MD5 : 1ef0f5a93a86e88d0e88f851ed18ad63
+- 大小 : 1.47 MB (1,545,243 字节)
+```
+
+## 3.Linux-kernel 6.13.8
+
+- 版本 : `6.13.8`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.13.8-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.13.8-1.el9.x86_64.rpm
+- SHA1 : 7483646f6492ab394971e161f84b5ee010fa58b5
+- MD5 : e4c9ad1f674272aa9cfce5aaa4236d0a
+- 大小 : 67.4 MB (70,720,918 字节)
+
+kernel-devel-6.13.8-1.el9.x86_64.rpm
+- SHA1 : f1675a665809e3aa97ebf7042f3cd6351d2fe521
+- MD5 : 85a0269448dd26d0f72fe4f5c0f3da4e
+- 大小 : 9.68 MB (10,152,668 字节)
+
+kernel-headers-6.13.8-1.el9.x86_64.rpm
+- SHA1 : ec9ca97fb6e29d20092da730e693913cbe9f7d5a
+- MD5 : f1884cbf15d2c799e23c9a33a7722598
+- 大小 : 1.48 MB (1,555,777 字节)
+```
+
 # 2025.3.6 VMware Workstation Pro 17.6.3
 VMware Workstation Pro 17.6.3
 - 文件名 : `VMware-workstation-full-17.6.3-24583834.exe(401.43 MB)`
