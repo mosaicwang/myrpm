@@ -1,5 +1,29 @@
 # RPM软件
 
+# 2025.3.27 编译Linux内核 6.14
+- 版本 : `6.14`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.14-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.6.84-1.el9.x86_64.rpm
+- SHA1 : 1f59de6ccc7e25430996a3e0b4196d26591e7f7e
+- MD5 : d98aeac1308b89d095dd3355a72ee586
+- 大小 : 67.8 MB (71,099,454 字节)
+
+```
+
 # 2025.3.26 编译Linux内核 6.6、6.12和6.13
 
 ## 1.Linux-kernel 6.6.84
