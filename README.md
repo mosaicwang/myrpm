@@ -1,6 +1,42 @@
 # RPM软件
 
+# 2025.4.9 编译pure-ftpd 1.0.52
+- 名称 : `pure-ftpd`
+- 版本 : `1.0.52`
+- 源码下载 : `https://github.com/jedisct1/pure-ftpd/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+./configure \
+--prefix=/usr/bin/pure-ftpd-1.0.52 --sysconfdir=/etc/pure-ftpd \
+--with-everything --with-tls \
+--with-nonroot --with-puredb --with-pam
+```
+- 安装
+
+```
+dnf install ./pure-ftpd-1.0.52-1.el9.x86_64.rpm
+```
+安装完成后 :
+- `pure-ftpd`安装到`/usr/bin/pure-ftpd-1.0.52`目录下，可执行文件在`bin`和`sbin`目录中
+- 创建了新的操作系统用户`pure-ftpd`,此用户设置为禁止登录
+- 有2个系统服务文件 : `pure-ftpd.service` 和 `pure-ftpd-non-root.service`
+- 有一个PAM文件 : `/etc/pam.d/pure-ftpd`
+- 配置文件在 : `/etc/pure-ftpd/pure-ftpd.conf`
+
+- 摘要 :
+
+```
+pure-ftpd-1.0.52-1.el9.x86_64.rpm
+- SHA1 : 51254e8c9b691538f7ad1733bbbaaadcf347d550
+- MD5 : 37332760815867ce0ed1b1da16721d78
+- 大小 : 252 KB (258,748 字节)
+```
+
+
 # 2025.3.27 编译Linux内核 6.14
+- 名称 : `Linux kernel`
 - 版本 : `6.14`
 - 源码下载 : `https://www.kernel.org/`
 - 适用操作系统 : `Centos 9 stream`
