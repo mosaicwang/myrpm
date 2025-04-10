@@ -21,17 +21,19 @@ dnf install ./pure-ftpd-1.0.52-1.el9.x86_64.rpm
 安装完成后 :
 - `pure-ftpd`安装到`/usr/bin/pure-ftpd-1.0.52`目录下，可执行文件在`bin`和`sbin`目录中
 - 创建了新的操作系统用户`pure-ftpd`,此用户设置为禁止登录
-- 有2个系统服务文件 : `pure-ftpd.service` 和 `pure-ftpd-non-root.service`
-- 有一个PAM文件 : `/etc/pam.d/pure-ftpd`
-- 配置文件在 : `/etc/pure-ftpd/pure-ftpd.conf`
+- 系统服务文件 : `pure-ftpd-non-root.service`
+- PAM文件 : `/etc/pam.d/pure-ftpd` .由于普通用户无法读取`/etc/shadow`,因此此文件暂时没什么用处
+- 配置文件 : `/etc/pure-ftpd/pure-ftpd.conf`
+
+- 配置pure-ftpd，以便以普通用户启动 : `https://blog.csdn.net/mosaicwang/article/details/147105530`
 
 - 摘要 :
 
 ```
 pure-ftpd-1.0.52-1.el9.x86_64.rpm
-- SHA1 : 51254e8c9b691538f7ad1733bbbaaadcf347d550
-- MD5 : 37332760815867ce0ed1b1da16721d78
-- 大小 : 252 KB (258,748 字节)
+- SHA1 : afe9403254d313193fc83eca2d0210571e660fea
+- MD5 : 8336188986c0547cff3b237208d8099d
+- 大小 : 263 KB (269,644 字节)
 ```
 
 
