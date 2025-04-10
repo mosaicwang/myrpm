@@ -11,7 +11,8 @@
 ./configure \
 --prefix=/usr/bin/pure-ftpd-1.0.52 --sysconfdir=/etc/pure-ftpd \
 --with-everything --with-tls \
---with-nonroot --with-puredb --with-pam
+--with-ldap --with-mysql --with-pgsql \
+--with-nonroot --with-puredb
 ```
 - 安装
 
