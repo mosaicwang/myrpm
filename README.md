@@ -1,7 +1,92 @@
 # RPM软件
 
-# 2025.4.12 编译Openssh 10.0p1
-- 名称 : `Openssh`
+# 2025.4.12 编译OpenSSL LTS 3.5
+- 名称 : `OpenSSL`
+- 版本 : `3.5.0(LTS)`
+- 源码下载 :
+
+```
+https://openssl-library.org/source/index.html
+或
+https://github.com/openssl/openssl/releases
+```
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+sslarch=%{_os}-%{_target_cpu}
+%define fips %{version}-%{srpmhash}
+
+./Configure \
+--prefix=/usr/openssl-3.4.0 --openssldir=%{_sysconfdir}/pki/tls enable-ec_nistp_64_gcc_128 \
+ zlib enable-camellia enable-seed enable-rfc3779 enable-sctp \
+ enable-cms enable-md2 enable-rc5 enable-ktls enable-fips\
+ no-mdc2 no-ec2m no-sm2 no-sm4 enable-buildtest-c++\
+ shared  ${sslarch} $RPM_OPT_FLAGS '-DDEVRANDOM="\"/dev/urandom\"" -DREDHAT_FIPS_VERSION="\"%{fips}\""'\
+ -DSYSTEM_CIPHERS_FILE=%{_sysconfdir}/crypto-policies/back-ends/openssl.config \
+ -Wl,--allow-multiple-definition
+
+```
+- 摘要 :
+
+```
+openssl-3.5.0-2.el9.x86_64.rpm
+- 大小 : 982 KB (1,006,111 字节)
+- SHA1 : 066525ed8c0e4a60c0fd8c864cd82a64db7d626a
+- MD5 : f33456f9fa9b13cda1a57cb7bb55acc8
+
+openssl-libs-3.5.0-2.el9.x86_64.rpm
+- 大小 : 4.24 MB (4,447,928 字节)
+- SHA1 : 12313350738f2e6110ab49280ffaeb078cdc1e45
+- MD5 : 586473b3624b1fa9fb98d8de72dba06e
+
+openssl-devel-3.5.0-2.el9.x86_64.rpm
+- 大小 : 1.61 MB (1,695,454 字节)
+- SHA1 : b17f78b3000514645c45572e198111121eaff5b2
+- MD5 : e43194e84b2e21ddfc6cf22969b08167
+```
+
+- Release Notes : https://github.com/openssl/openssl/blob/openssl-3.4.0/NEWS.md
+- 安装
+
+```
+# 先安装依赖包
+dnf install perl-WWW-Curl lksctp-tools perl-interpreter \
+perl-File-Basename perl-Getopt-Std perl-IO perl-WWW-Curl \
+perl-libs perl-vars
+
+rpm -ivh openssl-libs-3.4.0-1.el9.x86_64.rpm \
+openssl-3.4.0-1.el7.x86_64.rpm --nodeps --force
+```
+- 说明 : 
+	- 1.暂不支持通过`dnf install`命令安装。与`crypto-policies`包有冲突
+	- 2.OpenSSL为Linux的基础软件，因此不建议在生产环境上安装，以免破坏系统的安全性。
+
+- 查看版本信息 :
+
+```
+openssl version -a
+输出如下 :
+OpenSSL 3.5.0 8 Apr 2025 (Library: OpenSSL 3.5.0 8 Apr 2025)
+built on: Thu Apr 10 23:45:13 2025 UTC
+platform: linux-x86_64
+options:  bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\\"/dev/urandom\\"" -DREDHAT_FIPS_VERSION="\\"3.5.0-%{srpmhash}\\"" -DSYSTEM_CIPHERS_FILE=/etc/crypto-policies/back-ends/openssl.config
+OPENSSLDIR: "/etc/pki/tls"
+ENGINESDIR: "/usr/openssl-3.5.0/lib64/engines-3"
+MODULESDIR: "/usr/openssl-3.5.0/lib64/ossl-modules"
+Seeding source: os-specific
+CPUINFO: OPENSSL_ia32cap=0xfffa32034f8bffff:0x00000018009c27ab:0x00000000bc000400:0x0000000000000000:0x0000000000000000
+
+# 查看SSH的版本
+ssh -V
+输出如下 :
+OpenSSH_10.0p2, OpenSSL 3.5.0 8 Apr 2025
+
+```
+	
+# 2025.4.12 编译OpenSSH 10.0p1
+- 名称 : `OpenSSH`
 - 版本 : `10.0p1`
 - 源码下载 : 
 https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/
@@ -461,7 +546,9 @@ rpm -ivh openssl-3.4.0-1.el7.x86_64.rpm openssl-libs-3.4.0-1.el7.x86_64.rpm --no
 
 # Centos 9
 # 安装依赖包
-dnf install perl-WWW-Curl lksctp-tools
+dnf install perl-WWW-Curl lksctp-tools perl-interpreter \
+perl-File-Basename perl-Getopt-Std perl-IO perl-WWW-Curl \
+perl-libs perl-vars
 
 rpm -ivh openssl-libs-3.4.0-1.el9.x86_64.rpm openssl-3.4.0-1.el7.x86_64.rpm --nodeps --force
 ```
