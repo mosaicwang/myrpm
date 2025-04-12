@@ -1,5 +1,64 @@
 # RPM软件
 
+# 2025.4.12 编译Openssh 10.0p1
+- 名称 : `Openssh`
+- 版本 : `10.0p1`
+- 源码下载 : 
+https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/
+或
+https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+%configure \
+	--sysconfdir=%{_sysconfdir}/ssh \
+	--libexecdir=%{_libexecdir}/openssh \
+	--datadir=%{_datadir}/openssh \
+	--with-default-path=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin \
+	--with-superuser-path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin \
+	--with-privsep-path=%{_datadir}/empty.sshd \
+	--disable-strip \
+	--without-zlib-version-check \
+	--with-ipaddr-display \
+	--with-pie=no \
+	--without-hardening `# The hardening flags are configured by system` \
+	--with-systemd \
+	--with-default-pkcs11-provider=yes \
+	--with-security-key-builtin=yes \
+	--with-pam \
+	--with-selinux --with-audit=linux \
+	--with-sandbox=seccomp_filter \
+	--without-kerberos5 \	
+	--with-libedit
+```
+- 安装
+
+```
+dnf install ./*.rpm
+```
+安装完成后,会重新生成主机密钥,因此重新登录时会提示新的主机指纹.
+
+- 摘要 :
+
+```
+openssh-10.0p1-1.el9.x86_64.rpm
+- 大小 : 340 KB (348,463 字节)
+- SHA1 : fac9564e4c586b8b11bc796bf232c65a514f0d12
+- MD5 : a61b68ab803eff8881c54787eb0853e4
+
+openssh-server-10.0p1-1.el9.x86_64.rpm
+- 大小 : 615 KB (629,783 字节)
+- SHA1 : b16f5f63fd2c05d2e0ccf80f25306b2e2ff6e084
+- MD5 : 38ce6a54e1949d8df8f63cf04151645d
+
+openssh-clients-10.0p1-1.el9.x86_64.rpm
+- 大小 : 766 KB (784,958 字节)
+- SHA1 : ac3795289e53484efb28b37eaf237a06fef8de20
+- MD5 : f49e7c0bc87b38c55fba4bb7de49b6be
+
+```
+
 # 2025.4.9 编译pure-ftpd 1.0.52
 - 名称 : `pure-ftpd`
 - 版本 : `1.0.52`
