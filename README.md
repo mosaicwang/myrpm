@@ -31,19 +31,26 @@ sslarch=%{_os}-%{_target_cpu}
 
 ```
 openssl-3.5.0-2.el9.x86_64.rpm
-- 大小 : 982 KB (1,006,111 字节)
-- SHA1 : 066525ed8c0e4a60c0fd8c864cd82a64db7d626a
-- MD5 : f33456f9fa9b13cda1a57cb7bb55acc8
+- 大小 : 982 KB (1,006,185 字节)
+- SHA1 : d67d531e6e4635d500601afe7dd92d596553ce6b
+- MD5 : a7e91f18aa7c1498af6268bfecb4e669
 
 openssl-libs-3.5.0-2.el9.x86_64.rpm
-- 大小 : 4.24 MB (4,447,928 字节)
-- SHA1 : 12313350738f2e6110ab49280ffaeb078cdc1e45
-- MD5 : 586473b3624b1fa9fb98d8de72dba06e
+- 大小 : 4.24 MB (4,447,865 字节)
+- SHA1 : 9e774c09353079d964527ea895f45e56c4cf6014
+- MD5 : 4d431050e3c2e192b3b21d290679cb18
 
 openssl-devel-3.5.0-2.el9.x86_64.rpm
 - 大小 : 1.61 MB (1,695,454 字节)
-- SHA1 : b17f78b3000514645c45572e198111121eaff5b2
-- MD5 : e43194e84b2e21ddfc6cf22969b08167
+- SHA1 : 62e933999f3ee47c70d3d1ac4d42bf60a4535c94
+- MD5 : cd1db7fd249d9aae82988f770499b2ad
+
+# 自行编译crypto-policies，仅供测试,请勿在生产环境中部署
+crypto-policies-20251215-1.git9a18988.el9.noarch.rpm
+- SHA1 : ea075280ae49ec7c168772db6f2889394ce35d26
+
+crypto-policies-scripts-20251215-1.git9a18988.el9.noarch.rpm
+- SHA1 : 968f17053e213a1dd59088cf127c0f312f6a2922
 ```
 
 - Release Notes : https://github.com/openssl/openssl/blob/openssl-3.4.0/NEWS.md
