@@ -1,5 +1,79 @@
 # RPM软件
 
+# 2025.5.27 Linux内核
+## 1.Linux kernel 6.14.8
+- 名称 : `Linux kernel`
+- 版本 : `6.14.8`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.14.8-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.14.8-1.el9.x86_64.rpm
+- SHA1 : b8b1f0e37724c7a59ee2c4bd3aa0a6904e22b0e4
+- MD5 : c664d32d41c97ebfb0b07fadf081370d
+- 大小 : 67.9 MB (71,205,608 字节)
+
+```
+## 2.Linux kernel 6.12.30
+- 名称 : `Linux kernel`
+- 版本 : `6.12.30`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.12.30-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.12.30-1.el9.x86_64.rpm
+- SHA1 : 5161bed93a9a936fcf329c11bc58a07364efce6e
+- MD5 : 8d89afb1a173ee8465c33409c56aec7a
+- 大小 : 67.1 MB (70,394,257 字节)
+
+```
+## 3.Linux kernel 6.6.92
+- 名称 : `Linux kernel`
+- 版本 : `6.6.92`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.6.92-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.6.92-1.el9.x86_64.rpm
+- SHA1 : afa5d278773d4a7beb765ca6b8cfb020cfaa1b91
+- MD5 : 814af19f07b0668a4e844a9898d62d3f
+- 大小 : 64.0 MB (67,163,264 字节)
+
+```
+
 # 2025.4.12 编译OpenSSL LTS 3.5
 - 名称 : `OpenSSL`
 - 版本 : `3.5.0(LTS)`
