@@ -1,5 +1,55 @@
 # RPM软件
 
+# 2025.7.2 Linux内核
+## 1.Linux kernel 6.12.35
+- 名称 : `Linux kernel`
+- 版本 : `6.12.35`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.12.35-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.12.35-1.el9.x86_64.rpm
+- SHA1 : 427ab9353ed4ebc346632351948c872caf7c8162
+- MD5 : f548204b2402f6e5c7df5c8fc7d7b50f
+- 大小 : 67.1 MB (70,413,633 字节)
+
+```
+## 2.Linux kernel 6.6.95
+- 名称 : `Linux kernel`
+- 版本 : `6.6.95`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 编译参数 :
+
+```
+make olddefconfig
+```
+- 安装
+
+```
+dnf install ./kernel-6.6.95-1.el9.x86_64.rpm
+```
+- 摘要 :
+
+```
+kernel-6.6.95-1.el9.x86_64.rpm
+- SHA1 : 389521046fe4eb5d6ea200fb391ff17b4c65742c
+- MD5 : 4e7a58895ab5c12be6036543d0e86a91
+- 大小 : 64.2 MB (67,326,717 字节)
+
+```
+
 # 2025.5.27 Linux内核
 ## 1.Linux kernel 6.14.8
 - 名称 : `Linux kernel`
