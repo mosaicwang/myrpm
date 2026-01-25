@@ -1,5 +1,28 @@
 # RPM软件
 
+# 2026.01.25 radius
+
+## 1.FreeRadius 3.2.8 for centos 9
+- 名称 : `Freeradius`
+- 版本 : `3.2.8`
+- 源码下载 : `https://github.com/FreeRADIUS/freeradius-server`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+freeradius-3.2.8-1.el9.x86_64.rpm           
+freeradius-devel-3.2.8-1.el9.x86_64.rpm     
+freeradius-help-3.2.8-1.el9.noarch.rpm      
+freeradius-krb5-3.2.8-1.el9.x86_64.rpm      
+freeradius-ldap-3.2.8-1.el9.x86_64.rpm      
+freeradius-mysql-3.2.8-1.el9.x86_64.rpm     
+freeradius-perl-3.2.8-1.el9.x86_64.rpm      
+freeradius-postgresql-3.2.8-1.el9.x86_64.rpm
+freeradius-sqlite-3.2.8-1.el9.x86_64.rpm    
+freeradius-utils-3.2.8-1.el9.x86_64.rpm     
+python3-freeradius-3.2.8-1.el9.x86_64.rpm   
+```
+ 
 #2025.8.27 Linux内核
 ## 1.Linux kernel 6.6.102
 - 名称 : `Linux kernel`
