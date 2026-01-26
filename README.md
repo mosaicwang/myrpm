@@ -1,4 +1,35 @@
 # RPM软件
+# 2026.01.26 radius
+- 名称 : `Freeradius`
+- 版本 : `3.2.8`
+- 源码下载 : `https://github.com/FreeRADIUS/freeradius-server`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+freeradius-3.2.8-1.el9.x86_64.rpm
+freeradius-config-3.2.8-1.el9.x86_64.rpm
+freeradius-freetds-3.2.8-1.el9.x86_64.rpm
+freeradius-kafka-3.2.8-1.el9.x86_64.rpm
+freeradius-krb5-3.2.8-1.el9.x86_64.rpm
+freeradius-ldap-3.2.8-1.el9.x86_64.rpm
+freeradius-mysql-3.2.8-1.el9.x86_64.rpm
+freeradius-perl-3.2.8-1.el9.x86_64.rpm
+freeradius-perl-util-3.2.8-1.el9.x86_64.rpm
+freeradius-postgresql-3.2.8-1.el9.x86_64.rpm
+freeradius-python-3.2.8-1.el9.x86_64.rpm
+freeradius-redis-3.2.8-1.el9.x86_64.rpm
+freeradius-rest-3.2.8-1.el9.x86_64.rpm
+freeradius-sqlite-3.2.8-1.el9.x86_64.rpm
+freeradius-unbound-3.2.8-1.el9.x86_64.rpm
+freeradius-unixODBC-3.2.8-1.el9.x86_64.rpm
+freeradius-utils-3.2.8-1.el9.x86_64.rpm
+```
+- 配置命令 :
+
+```
+./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix= --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info --libdir=/usr/lib64/freeradius --sysconfdir=/etc --disable-ltdl-install --with-gnu-ld --with-threads --with-thread-pool --with-docdir=/usr/share/doc/freeradius-3.2.8 --with-rlm-ldap-include-dir=/usr/local/openldap/include --with-rlm-ldap-lib-dir=/usr/local/openldap/lib64 --with-rlm-sql_postgresql-include-dir=/usr/pgsql-17/include --with-rlm-sql-postgresql-lib-dir=/usr/pgsql-17/lib --with-rlm-sql_mysql-include-dir=/usr/include/mysql --with-mysql-lib-dir=/usr/lib64/mysql --with-unixodbc-lib-dir=/usr/lib64 --with-rlm-dbm-lib-dir=/usr/lib64 --with-rlm-krb5-include-dir=/usr/kerberos/include --without-rlm_eap_ikev2 --without-rlm_sql_iodbc --without-rlm_sql_firebird --without-rlm_sql_db2 --without-rlm_sql_mongo --with-jsonc-lib-dir=/usr/lib64 --with-jsonc-include-dir=/usr/include/json --with-winbind-include-dir=/usr/include/samba-4.0 --with-winbind-lib-dir=/usr/lib64/samba --with-systemd --without-rlm_yubikey --without-rlm_eap_pwd --without-rlm_eap_tnc --without-rlm_cache_memcached --without-radlast
+```
 
 # 2026.01.25 radius
 
@@ -21,6 +52,11 @@ freeradius-postgresql-3.2.8-1.el9.x86_64.rpm
 freeradius-sqlite-3.2.8-1.el9.x86_64.rpm    
 freeradius-utils-3.2.8-1.el9.x86_64.rpm     
 python3-freeradius-3.2.8-1.el9.x86_64.rpm   
+```
+- 配置命令 :
+
+```
+./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix= --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info --libdir=/usr/lib64/freeradius --disable-openssl-version-check --with-docdir=/usr/share/doc/freeradius --with-rlm-sql_postgresql-include-dir=/usr/pgsql-17/include --with-rlm-sql-postgresql-lib-dir=/usr/pgsql-17/lib --with-rlm-sql_mysql-include-dir=/usr/include/mysql --with-mysql-lib-dir=/usr/lib64/mariadb --with-unixodbc-lib-dir=/usr/lib64 --with-rlm-dbm-lib-dir=/usr/lib64 --with-rlm-krb5-include-dir=/usr/kerberos/include --without-rlm_eap_ikev2 --without-rlm_eap_tnc --without-rlm_sql_iodbc --without-rlm_sql_firebird --without-rlm_sql_db2 --without-rlm_sql_oracle --without-rlm_unbound --without-rlm_redis --without-rlm_rediswho --without-rlm_cache_memcached --with-rlm_python3 --with-rlm-python3-lib-dir=/usr/lib64//usr/lib64/python3.9/config-3.9-x86_64-linux-gnu --with-rlm-python3-include-dir=/usr/include/python3.9
 ```
  
 #2025.8.27 Linux内核
