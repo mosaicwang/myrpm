@@ -1,4 +1,18 @@
 # RPM软件
+# 2026.2.12 libkqueue
+- 名称 : `libkqueue`
+- 版本 : `2.6.3`
+- 源码下载 : `https://github.com/mheily/libkqueue`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+libkqueue-2.6.3-2.x86_64.rpm
+libkqueue-devel-2.6.3-2.x86_64.rpm
+```
+libkqueue是freeradius 4的硬性依赖（Hard dependencies ）。详见：https://wiki.freeradius.org/building/Home#hard-dependencies_libkqueue-or-native-kqueue-support-since-v4-0-x
+
+
 # 2026.01.26 radius
 - 名称 : `Freeradius`
 - 版本 : `3.2.8`
