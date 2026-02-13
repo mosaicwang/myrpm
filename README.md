@@ -1,4 +1,47 @@
 # RPM软件
+# 2026.2.14 OpenLDAP 2.6.12
+- 名称 : `openldap`
+- 版本 : `2.6.12`
+- 源码下载 : `https://www.openldap.org/software/download/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+openldap-clients-2.6.12-1.el9.x86_64.rpm
+openldap-compat-2.6.12-1.el9.x86_64.rpm
+openldap-devel-2.6.12-1.el9.x86_64.rpm
+openldap-libs-2.6.12-1.el9.x86_64.rpm
+openldap-servers-2.6.12-1.el9.x86_64.rpm
+```
+- 编译命令:
+
+```
+./configure \
+    --libdir=%{_libdir}/openldap \
+    --enable-dynamic=yes \
+    --enable-versioning \
+    --enable-cleartext \
+    --enable-crypt \
+    --enable-spasswd \
+    --enable-modules=yes \
+    --enable-perl \
+    --enable-rlookups \
+    --enable-slapd \
+    --enable-passwd \
+    --enable-backends=mod \
+    --enable-mdb \
+    --disable-sql \
+    --disable-wt \
+    --enable-overlays=mod \
+    --enable-balancer=mod \
+    --with-cyrus-sasl \
+    --with-threads \
+    --enable-debug=no \
+    --with-tls=openssl \
+    --with-systemd \
+    --with-argon2=libsodium
+```
+
 # 2026.2.12 libkqueue
 - 名称 : `libkqueue`
 - 版本 : `2.6.3`
