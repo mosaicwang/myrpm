@@ -13,6 +13,34 @@ openldap-devel-2.6.12-1.el9.x86_64.rpm
 openldap-libs-2.6.12-1.el9.x86_64.rpm
 openldap-servers-2.6.12-1.el9.x86_64.rpm
 ```
+- 编译命令:
+
+```
+./configure \
+    --libdir=%{_libdir}/openldap \
+    --enable-dynamic=yes \
+    --enable-versioning \
+    --enable-cleartext \
+    --enable-crypt \
+    --enable-spasswd \
+    --enable-modules=yes \
+    --enable-perl \
+    --enable-rlookups \
+    --enable-slapd \
+    --enable-passwd \
+    --enable-backends=mod \
+    --enable-mdb \
+    --disable-sql \
+    --disable-wt \
+    --enable-overlays=mod \
+    --enable-balancer=mod \
+    --with-cyrus-sasl \
+    --with-threads \
+    --enable-debug=no \
+    --with-tls=openssl \
+    --with-systemd \
+    --with-argon2=libsodium
+```
 
 # 2026.2.12 libkqueue
 - 名称 : `libkqueue`
