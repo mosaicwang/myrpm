@@ -1,4 +1,15 @@
 # RPM软件
+# 2026.2.14 htmldoc 1.9.23
+- 名称 : `htmldoc`
+- 版本 : `1.9.23`
+- 源码下载 : `https://github.com/michaelrsweet/htmldoc`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+htmldoc-1.9.23-1.el9.x86_64.rpm
+```
+
 # 2026.2.14 OpenLDAP 2.6.12
 - 名称 : `openldap`
 - 版本 : `2.6.12`
@@ -8,16 +19,15 @@
 
 ```
 openldap-clients-2.6.12-1.el9.x86_64.rpm
-openldap-compat-2.6.12-1.el9.x86_64.rpm
 openldap-devel-2.6.12-1.el9.x86_64.rpm
 openldap-libs-2.6.12-1.el9.x86_64.rpm
 openldap-servers-2.6.12-1.el9.x86_64.rpm
 ```
+取消compat包。此包是未启用线程的版本
 - 编译命令:
 
 ```
 ./configure \
-    --libdir=%{_libdir}/openldap \
     --enable-dynamic=yes \
     --enable-versioning \
     --enable-cleartext \
