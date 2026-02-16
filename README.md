@@ -1,4 +1,26 @@
 # RPM软件
+# 2026.2.17 kernel 6.18.10
+- 名称 : `kernel`
+- 版本 : `6.18.10` 
+- EOL : `2027年12月`
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+kernel-6.18.10-1.el9.x86_64.rpm
+kernel-devel-6.18.10-1.el9.x86_64.rpm
+kernel-doc-6.18.10-1.el9.x86_64.rpm
+kernel-headers-6.18.10-1.el9.x86_64.rpm
+```
+如下为LTS版本说明 :
+```
+Version	Maintainer	Released	Projected EOL
+6.18	Greg Kroah-Hartman & Sasha Levin	2025-11-30	Dec, 2027
+6.12	Greg Kroah-Hartman & Sasha Levin	2024-11-17	Dec, 2026
+6.6	Greg Kroah-Hartman & Sasha Levin	2023-10-29	Dec, 2026
+6.1	Greg Kroah-Hartman & Sasha Levin	2022-12-11	Dec, 2027
+```
 # 2026.2.16 kernel 6.12.71
 - 名称 : `kernel`
 - 版本 : `6.12.71` 
