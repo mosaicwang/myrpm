@@ -1,4 +1,18 @@
 # RPM软件
+# 2026.2.23 kernel 7.0-rc1
+- 名称 : `kernel`
+- 版本 : `7.0-rc1` 
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+kernel-7.0-1.el9.x86_64.rpm
+kernel-devel-7.0-1.el9.x86_64.rpm
+kernel-doc-7.0-1.el9.x86_64.rpm
+kernel-headers-7.0-1.el9.x86_64.rpm
+```
+`kernel-doc`是内核文档(html格式)。安装后查看`/usr/share/doc/kernel-版本号/html/index.html`
 # 2026.2.17 kernel 6.18.10
 - 名称 : `kernel`
 - 版本 : `6.18.10` 
@@ -13,6 +27,7 @@ kernel-devel-6.18.10-1.el9.x86_64.rpm
 kernel-doc-6.18.10-1.el9.x86_64.rpm
 kernel-headers-6.18.10-1.el9.x86_64.rpm
 ```
+`kernel-doc`是内核文档(html格式)。安装后查看`/usr/share/doc/kernel-版本号/html/index.html`
 如下为LTS版本说明 :
 ```
 Version	Maintainer	Released	Projected EOL
