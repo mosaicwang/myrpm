@@ -1,4 +1,33 @@
 # RPM软件
+# 226.2.26 LKRG for kernel 6.18.10
+LKRG（Linux Kernel Runtime Guard，Linux内核运行时防护）是一个开源的内核模块，旨在实时检测并响应针对Linux内核的安全威胁。它的核心功能可以概括为两个方面 ：
+
+1.运行时完整性检查：持续监控内核自身及其关键数据结构的完整性，防止其被恶意篡改（例如，被rootkit感染）。
+2.漏洞利用检测与防御：识别并阻止企图利用内核漏洞进行提权或其他恶意操作的行为
+
+- 名称 : `LKRG`
+- 版本 : `1.0.0` 
+- 源码下载 : `https://lkrg.org`
+- 适用操作系统 : `Centos 9 stream`
+- 适用内核版本 : `kernel 6.18.10`
+- 文件列表 :
+
+```
+lkrg-1.0.0-1.el9.x86_64.rpm
+```
+- 安装LKRG :
+1)先安装kernel 6.18.10 : `dnf install kernel-6.18.10-1.el9.x86_64.rpm`
+2)安装lkrg : `dnf install ./lkrg-1.0.0-1.el9.x86_64.rpm`
+3)安装完成后，根据屏幕提示执行如下命令:
+
+```
+启动LKRG步骤:
+1.执行 : depmod -a
+2.执行 : depmod --show|grep lkrg 看是否能找到LKRG模块
+3.启动LKRG系统服务 : systemctl start lkrg
+4.设置为开机自动启动 : systemctl enable lkrg
+
+```
 # 2026.2.23 kernel 7.0-rc1
 - 名称 : `kernel`
 - 版本 : `7.0-rc1` 
