@@ -1,4 +1,23 @@
 # RPM软件
+# 2026.3.1 Openssl 3.6.1
+- 名称 : `Openssl`
+- 版本 : `3.6.1` 
+- 源码下载 : `https://github.com/openssl/openssl/releases`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+openssl-3.6.1-1.el9.x86_64.rpm
+openssl-devel-3.6.1-1.el9.x86_64.rpm
+openssl-fips-provider-3.6.1-1.el9.x86_64.rpm
+openssl-libs-3.6.1-1.el9.x86_64.rpm
+```
+在`Centos 9的openssl 3.5.5下`可以正常执行`dnf install`
+```
+dnf install ./openssl-fips-provider-3.6.1-1.el9.x86_64.rpm \
+./openssl-libs-3.6.1-1.el9.x86_64.rpm \
+./openssl-3.6.1-1.el9.x86_64.rpm
+```
 # 226.2.26 LKRG for kernel 6.18.10
 LKRG（Linux Kernel Runtime Guard，Linux内核运行时防护）是一个开源的内核模块，旨在实时检测并响应针对Linux内核的安全威胁。它的核心功能可以概括为两个方面 ：
 
