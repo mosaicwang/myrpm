@@ -1,4 +1,62 @@
 # RPM软件
+# 2026.3.2 Openssh 10.2p1
+- 名称 : `Openssh`
+- 版本 : `10.2p1` 
+- 源码下载 : `https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+openssh-10.2p1-1.el9.x86_64.rpm
+openssh-askpass-10.2p1-1.el9.x86_64.rpm
+openssh-clients-10.2p1-1.el9.x86_64.rpm
+openssh-server-10.2p1-1.el9.x86_64.rpm
+```
+在`Centos 9的openssl 3.6.1下`可以正常执行`dnf install`
+```
+dnf install ./openssh-10.2p1-1.el9.x86_64.rpm \
+./openssh-clients-10.2p1-1.el9.x86_64.rpm \
+./openssh-server-10.2p1-1.el9.x86_64.rpm
+```
+- 启用的功能列表 :
+
+```
+OpenSSH has been configured with the following options:
+                     User binaries: /usr/bin
+                   System binaries: /usr/sbin
+               Configuration files: /etc/ssh
+                   Askpass program: /usr/libexec/openssh/ssh-askpass
+                      Manual pages: /usr/share/man/manX
+                          PID file: /var/run
+  Privilege separation chroot path: /usr/share/empty.sshd
+            sshd default user PATH: /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+          sshd superuser user PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+                    Manpage format: man
+                       PAM support: yes
+                   OSF SIA support: no
+                 KerberosV support: no
+                   SELinux support: yes
+                   libedit support: no
+                   libldns support: no
+  Solaris process contract support: no
+           Solaris project support: no
+         Solaris privilege support: no
+       IP address in $DISPLAY hack: yes
+           Translate v4 in v6 hack: yes
+                  BSD Auth support: no
+              Random number source: OpenSSL internal ONLY
+             Privsep sandbox style: seccomp_filter
+                   PKCS#11 support: yes
+                  U2F/FIDO support: built-in
+```
+- 查看版本 :
+
+```
+ssh -V
+输出如下 :
+OpenSSH_10.2p1, OpenSSL 3.6.1 27 Jan 2026
+```
+
 # 2026.3.1 Openssl 3.6.1
 - 名称 : `Openssl`
 - 版本 : `3.6.1` 
@@ -17,6 +75,144 @@ openssl-libs-3.6.1-1.el9.x86_64.rpm
 dnf install ./openssl-fips-provider-3.6.1-1.el9.x86_64.rpm \
 ./openssl-libs-3.6.1-1.el9.x86_64.rpm \
 ./openssl-3.6.1-1.el9.x86_64.rpm
+```
+- 启用的功能列表 :
+
+```
+Enabled features:
+
+    acvp-tests
+    afalgeng
+    apps
+    argon2
+    aria
+    asm
+    async
+    atexit
+    autoalginit
+    autoerrinit
+    autoload-config
+    bf
+    blake2
+    brotli
+    brotli-dynamic
+    buildtest-c++
+    bulk
+    cached-fetch
+    camellia
+    capieng
+    cast
+    chacha
+    cmac
+    cmp
+    cms
+    comp
+    ct
+    default-thread-pool
+    deprecated
+    des
+    dgram
+    dh
+    docs
+    dsa
+    dso
+    dtls
+    dynamic-engine
+    ec
+    ec_nistp_64_gcc_128
+    ecdh
+    ecdsa
+    ecx
+    engine
+    err
+    filenames
+    fips
+    fips-securitychecks
+    fips-post
+    gost
+    http
+    idea
+    integrity-only-ciphers
+    ktls
+    legacy
+    loadereng
+    makedepend
+    md2
+    md4
+    ml-dsa
+    ml-kem
+    module
+    multiblock
+    nextprotoneg
+    ocb
+    ocsp
+    padlockeng
+    pic
+    pinshared
+    poly1305
+    posix-io
+    psk
+    quic
+    unstable-qlog
+    rc2
+    rc5
+    rdrand
+    rfc3779
+    rmd160
+    scrypt
+    sctp
+    secure-memory
+    seed
+    shared
+    siphash
+    siv
+    slh-dsa
+    sm2
+    sm2-precomp
+    sm3
+    sm4
+    sock
+    srp
+    srtp
+    sse2
+    ssl
+    ssl-trace
+    static-engine
+    stdio
+    tests
+    thread-pool
+    threads
+    tls
+    tls-deprecated-ec
+    ts
+    ui-console
+    whirlpool
+    zlib
+    tls1-method
+    tls1_1-method
+    tls1_2
+    tls1_2-method
+    tls1_3
+    dtls1
+    dtls1-method
+    dtls1_2
+    dtls1_2-method
+```
+- 查看版本 :
+
+```
+openssl version -a
+输出如下 :
+OpenSSL 3.6.1 27 Jan 2026 (Library: OpenSSL 3.6.1 27 Jan 2026)
+built on: Sun Mar  1 14:12:58 2026 UTC
+platform: linux-x86_64
+options:  bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DBROTLI -DBROTLI_SHARED -DZLIB -DNDEBUG -I/usr/include/brotli -DPURIFY -DDEVRANDOM="\\"/dev/urandom\\"" -DSYSTEM_CIPHERS_FILE=/etc/crypto-policies/back-ends/openssl.config
+OPENSSLDIR: "/etc/pki/tls"
+ENGINESDIR: "/usr/openssl-3.6.1/lib64/engines-3"
+MODULESDIR: "/usr/openssl-3.6.1/lib64/ossl-modules"
+Seeding source: os-specific
+CPUINFO: OPENSSL_ia32cap=0xfffa32034f8bffff:0x00000018009c27ab:0x00000000bc000400:0x0000000000000000:0x0000000000000000
 ```
 # 226.2.26 LKRG for kernel 6.18.10
 LKRG（Linux Kernel Runtime Guard，Linux内核运行时防护）是一个开源的内核模块，旨在实时检测并响应针对Linux内核的安全威胁。它的核心功能可以概括为两个方面 ：
