@@ -1,4 +1,98 @@
 # RPM软件
+# 2026.3.23 GnuPG 2.5.18
+- 名称 : `GnuPG`
+- 版本 : `2.5.18`
+- 源码下载 : `https://www.gnupg.org/download/index.html`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+gnupg-2.5.18-1.el9.x86_64.rpm
+libassuan3-3.0.2-1.el9.x86_64.rpm
+libgcrypt-1.12.1-1.el9.x86_64.rpm
+libgpg-error-1.59-1.el9.x86_64.rpm
+libksba-1.6.8-1.el9.x86_64.rpm
+```
+- 安装命令 :
+
+### 1.安装依赖包 :
+```
+dnf install ./libgpg-error-1.59-1.el9.x86_64.rpm \
+./libgcrypt-1.12.1-1.el9.x86_64.rpm \
+./libksba-1.6.8-1.el9.x86_64.rpm \
+./libassuan3-3.0.2-1.el9.x86_64.rpm
+```
+输出如下 :
+```
+=============================================================================================================================================================================================
+ Package                                        Architecture                             Version                                        Repository                                      Size
+=============================================================================================================================================================================================
+Installing:
+ libassuan3                                     x86_64                                   3.0.2-1.el9                                    @commandline                                   116 k
+Upgrading:
+ libgcrypt                                      x86_64                                   1.12.1-1.el9                                   @commandline                                   860 k
+ libgpg-error                                   x86_64                                   1.59-1.el9                                     @commandline                                   246 k
+ libksba                                        x86_64                                   1.6.8-1.el9                                    @commandline                                   144 k
+
+```
+
+### 2.安装gnupg
+```
+dnf install ./gnupg-2.5.18-1.el9.x86_64.rpm
+```
+输出如下 :
+```
+=============================================================================================================================================================================================
+ Package                                     Architecture                             Version                                           Repository                                      Size
+=============================================================================================================================================================================================
+Installing:
+ gnupg                                       x86_64                                   2.5.18-1.el9                                      @commandline                                   2.8 M
+     replacing  gnupg2.x86_64 2.3.3-4.el9
+Installing dependencies:
+ libsecret                                   x86_64                                   0.20.4-4.el9                                      appstream                                      170 k
+ pinentry                                    x86_64                                   1.1.1-8.el9                                       appstream                                       67 k
+
+```
+### 查看版本
+`gpg2 --version`
+输出如下 :
+```
+gpg (GnuPG) 2.5.18-unknown
+libgcrypt 1.12.1
+NOTE: THIS IS A DEVELOPMENT VERSION!
+It is only intended for test purposes and should NOT be
+used in a production environment or with production keys!
+Copyright (C) 2025 g10 Code GmbH
+License GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: /root/.gnupg
+Supported algorithms:
+Pubkey: RSA, Kyber, ELG, DSA, ECDH, ECDSA, EDDSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB
+```
+执行`gpg2 --edit-key`时,可以增加ECC(椭圆曲线),比如:`cv25519`
+新版本支持的ECC如下 :
+```
+gpg2 --with-colons --list-config curve
+```
+输出如下 :
+```
+gpg: NOTE: THIS IS A DEVELOPMENT VERSION!
+gpg: It is only intended for test purposes and should NOT be
+gpg: used in a production environment or with production keys!
+cfg:curve:cv25519;ed25519;cv25519;ed25519;cv448;ed448;nistp256;nistp384;nistp521;brainpoolP256r1;brainpoolP384r1;brainpoolP512r1;secp256k1
+```
+对比旧版本(2.3.3)支持的曲线:
+```
+cfg:curve:cv25519;ed25519;cv448;ed448;nistp256;nistp384;nistp521;secp256k1
+```
+
+ 
 # 2026.3.12 VMware workstation Pro 25H2u1
 
 - 名称 : `VMware workstation Pro`
