@@ -57,11 +57,8 @@ Installing dependencies:
 `gpg2 --version`
 输出如下 :
 ```
-gpg (GnuPG) 2.5.18-unknown
+gpg (GnuPG) 2.5.18
 libgcrypt 1.12.1
-NOTE: THIS IS A DEVELOPMENT VERSION!
-It is only intended for test purposes and should NOT be
-used in a production environment or with production keys!
 Copyright (C) 2025 g10 Code GmbH
 License GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
