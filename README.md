@@ -12,6 +12,7 @@ libassuan3-3.0.2-1.el9.x86_64.rpm
 libgcrypt-1.12.1-1.el9.x86_64.rpm
 libgpg-error-1.59-1.el9.x86_64.rpm
 libksba-1.6.8-1.el9.x86_64.rpm
+npth-1.8-1.el9.x86_64.rpm
 ```
 - 安装命令 :
 
@@ -20,7 +21,8 @@ libksba-1.6.8-1.el9.x86_64.rpm
 dnf install ./libgpg-error-1.59-1.el9.x86_64.rpm \
 ./libgcrypt-1.12.1-1.el9.x86_64.rpm \
 ./libksba-1.6.8-1.el9.x86_64.rpm \
-./libassuan3-3.0.2-1.el9.x86_64.rpm
+./libassuan3-3.0.2-1.el9.x86_64.rpm \
+./npth-1.8-1.el9.x86_64.rpm
 ```
 输出如下 :
 ```
