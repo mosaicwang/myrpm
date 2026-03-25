@@ -1,4 +1,48 @@
 # RPM软件
+# 2026.3.25 pinentry 1.3.2
+- 名称 : `pinentry`
+- 版本 : `1.3.2`
+- 源码下载 : `https://www.gnupg.org/download/index.html`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+pinentry-1.3.2-1.el9.x86_64.rpm
+pinentry-efl-1.3.2-1.el9.x86_64.rpm
+pinentry-emacs-1.3.2-1.el9.x86_64.rpm
+pinentry-gnome3-1.3.2-1.el9.x86_64.rpm
+pinentry-gtk-1.3.2-1.el9.x86_64.rpm
+pinentry-qt-1.3.2-1.el9.x86_64.rpm
+pinentry-tty-1.3.2-1.el9.x86_64.rpm
+```
+- 配置如下:
+
+```
+	Pinentry v1.3.2 has been configured as follows:
+
+	Revision:  d766080  (55142)
+	Platform:  x86_64-redhat-linux-gnu
+
+	Curses Pinentry ..: yes
+	TTY Pinentry .....: yes
+	Emacs Pinentry ...: yes
+	EFL Pinentry .....: yes
+	GTK+-2 Pinentry ..: yes
+	GNOME 3 Pinentry .: yes
+	Qt6 Pinentry .....: yes
+	Qt5 Pinentry .....: yes
+	Qt4 Pinentry .....: no
+	TQt Pinentry .....: no
+	W32 Pinentry .....: no
+	FLTK Pinentry ....: no
+
+	Fallback to Curses: yes
+	Emacs integration : yes
+
+	libsecret ........: yes
+
+	Default Pinentry .: pinentry-curses
+```
 # 2026.3.23 GnuPG 2.5.18
 - 名称 : `GnuPG`
 - 版本 : `2.5.18`
