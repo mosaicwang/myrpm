@@ -1,4 +1,31 @@
 # RPM软件
+# 2026.4.17 kernel 7.0
+- 名称 : `kernel`
+- 版本 : `7.0` 
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+kernel-7.0-1.el9.x86_64.rpm
+kernel-devel-7.0-1.el9.x86_64.rpm
+kernel-doc-7.0-1.el9.x86_64.rpm
+kernel-headers-7.0-1.el9.x86_64.rpm
+```
+`kernel-doc`是内核文档(html格式)。安装后查看`/usr/share/doc/kernel-版本号/html/index.html`
+
+Linux 7.0 内核现已正式发布。
+
+尽管 7.0 这个版本号看起来是一次重大跨越，但 Linux 创始人 Linus Torvalds 在确定主版本号时并没有严格的规律，通常是在上一个系列的子版本号积累过高之后，才会比较随意地升级到新的主版本号
+
+Linux 7.0 包含了一系列值得关注的重要增强功能，主要包括以下几点：
+
+- 精准显式拥塞通知（AccECN）成为默认配置
+- UDP 性能大幅提升
+- IPv6 功能增强
+- CAKE MQ（Common Applications Kept Enhanced）网络调度器集成
+- AccECN 正式成为默认配置
+ 
 # 2026.3.25 pinentry 1.3.2
 - 名称 : `pinentry`
 - 版本 : `1.3.2`
