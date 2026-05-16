@@ -1,4 +1,13 @@
 # RPM软件
+
+# 2026.05.16 VMware Workstation Pro for Windows 26H1
+```
+文件名 : VMware-Workstation-Full-26H1-25388281.exe
+Build Number: 25388281
+Release Date : May 14, 2026
+SHA2 : a0ef9087607d9cad20b08139e73e41242e044ad5bd8cee141d3bad314586737f
+MD5 : 83f9b6cc7cf0e74ad3b15ccca27860af
+```
 # 2026.4.17 kernel 7.0
 - 名称 : `kernel`
 - 版本 : `7.0` 
