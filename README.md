@@ -1,5 +1,32 @@
 # RPM软件
 
+# 2026.5.29 kernel 6.18.33 和 kernel 7.0.10
+
+## kernel 6.18.33
+- 名称 : `kernel`
+- 版本 : `6.18.33` 
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+kernel-6.18.33-2.el9.x86_64.rpm
+kernel-devel-6.18.33-2.el9.x86_64.rpm
+kernel-headers-6.18.33-2.el9.x86_64.rpm
+```
+## kernel 7.0.10
+- 名称 : `kernel`
+- 版本 : `7.0.10` 
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+kernel-7.0.10-1.el9.x86_64.rpm
+kernel-devel-7.0.10-1.el9.x86_64.rpm
+kernel-headers-7.0.10-1.el9.x86_64.rpm
+```
+
 # 2026.05.16 VMware Workstation Pro for Windows 26H1
 ```
 文件名 : VMware-Workstation-Full-26H1-25388281.exe
