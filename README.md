@@ -2359,8 +2359,11 @@ gpg2 --recv-keys 1344FCF80D7A201155D73B083133BF069F26C5D0
 ```
 或 导入公钥文件
 ```
+gpg2 --import --import-options restore mosaicwang-20260322-publickey.asc
+或
 gpg2 --import --import-options restore mosaicwang-pubkey.asc
 ```
+注:`mosaicwang-20260322-publickey.asc`是新版本公钥
 2.查看导入的公钥
 ```
 gpg2 --list-keys
