@@ -1,5 +1,31 @@
 # RPM软件
 
+# 2026.7.7 kernel 6.18.38 和 kernel 7.1.3
+## kernel 6.18.38
+- 名称 : `kernel`
+- 版本 : `6.18.38` 
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+kernel-6.18.38-2.el9.x86_64.rpm
+kernel-devel-6.18.38-2.el9.x86_64.rpm
+kernel-headers-6.18.38-2.el9.x86_64.rpm
+```
+## kernel 7.1.3
+- 名称 : `kernel`
+- 版本 : `7.1.3` 
+- 源码下载 : `https://www.kernel.org/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+kernel-7.1.3-1.el9.x86_64.rpm
+kernel-devel-7.1.3-1.el9.x86_64.rpm
+kernel-headers-7.1.3-1.el9.x86_64.rpm
+```
+
 # 2026.5.29 kernel 6.18.33 和 kernel 7.0.10
 
 ## kernel 6.18.33
@@ -2364,6 +2390,7 @@ gpg2 --import --import-options restore mosaicwang-20260322-publickey.asc
 gpg2 --import --import-options restore mosaicwang-pubkey.asc
 ```
 注:`mosaicwang-20260322-publickey.asc`是新版本公钥
+
 2.查看导入的公钥
 ```
 gpg2 --list-keys
