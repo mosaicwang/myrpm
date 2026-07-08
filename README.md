@@ -1,5 +1,163 @@
 # RPM软件
 
+# 2026.7.8 openssh 10.4p1
+- 名称 : `Openssh`
+- 版本 : `10.4p1` 
+- 源码下载 : `https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/`
+- 适用操作系统 : `Centos 9 stream`
+- 文件列表 :
+
+```
+openssh-10.4p1-1.el9.x86_64.rpm
+openssh-askpass-10.4p1-1.el9.x86_64.rpm
+openssh-clients-10.4p1-1.el9.x86_64.rpm
+openssh-keycat-10.4p1-1.el9.x86_64.rpm
+openssh-keysign-10.4p1-1.el9.x86_64.rpm
+openssh-server-10.4p1-1.el9.x86_64.rpm
+openssh-sk-dummy-10.4p1-1.el9.x86_64.rpm
+```
+在`Centos 9的openssl 3.6.1下`可以正常执行`dnf install`
+```
+dnf install ./openssh-10.4p1-1.el9.x86_64.rpm \
+./openssh-clients-10.4p1-1.el9.x86_64.rpm \
+./openssh-server-10.4p1-1.el9.x86_64.rpm
+```
+- 启用的功能列表 :
+
+```
+OpenSSH has been configured with the following options:
+                     User binaries: /usr/bin
+                   System binaries: /usr/sbin
+               Configuration files: /etc/ssh
+                   Askpass program: /usr/libexec/openssh/ssh-askpass
+                      Manual pages: /usr/share/man/manX
+                          PID file: /var/run
+  Privilege separation chroot path: /usr/share/empty.sshd
+            sshd default user PATH: /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+          sshd superuser user PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+                    Manpage format: man
+                       PAM support: yes
+                   OSF SIA support: no
+                 KerberosV support: no
+                   SELinux support: yes
+                   libedit support: no
+                   libldns support: no
+  Solaris process contract support: no
+           Solaris project support: no
+         Solaris privilege support: no
+       IP address in $DISPLAY hack: yes
+           Translate v4 in v6 hack: yes
+                  BSD Auth support: no
+              Random number source: OpenSSL internal ONLY
+             Privsep sandbox style: seccomp_filter
+                   PKCS#11 support: yes
+                  U2F/FIDO support: built-in
+```
+- 查看版本 :
+
+```
+ssh -V
+输出如下 :
+OpenSSH_10.4p1, OpenSSL 3.5.1 1 Jul 2025
+```
+- 查看sshd的缺省配置
+
+```
+sshd -T
+```
+输出如下 :
+```
+port 22
+AddressFamily any
+listenaddress [::]:22
+listenaddress 0.0.0.0:22
+UsePAM yes
+PAMServiceName sshd
+LoginGraceTime 120
+X11DisplayOffset 10
+MaxAuthTries 6
+MaxSessions 10
+ClientAliveInterval 0
+ClientAliveCountMax 3
+RequiredRSASize 1024
+StreamLocalBindMask 0177
+UnusedConnectionTimeout none
+PermitRootLogin yes
+IgnoreRhosts yes
+IgnoreUserKnownHosts no
+HostbasedAuthentication no
+HostbasedUsesNameFromPacketOnly no
+PubkeyAuthentication yes
+PasswordAuthentication yes
+KbdInteractiveAuthentication yes
+PrintMotd yes
+PrintLastLog yes
+X11Forwarding no
+X11UseLocalhost yes
+PermitTTY yes
+PermitUserRC yes
+StrictModes yes
+TCPKeepAlive yes
+PermitEmptyPasswords no
+Compression yes
+GatewayPorts no
+UseDNS no
+AllowTcpForwarding yes
+AllowAgentForwarding yes
+DisableForwarding no
+AllowStreamLocalForwarding yes
+StreamLocalBindUnlink no
+FingerprintHash SHA256
+ExposeAuthInfo no
+RefuseConnection no
+PidFile /var/run/sshd.pid
+ModuliFile /etc/ssh/moduli
+XAuthLocation /usr/bin/xauth
+Ciphers chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr
+Macs umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+Banner none
+ForceCommand none
+ChrootDirectory none
+TrustedUserCAKeys none
+SecurityKeyProvider internal
+AuthorizedPrincipalsFile none
+VersionAddendum none
+AuthorizedKeysCommand none
+AuthorizedKeysCommandUser none
+AuthorizedPrincipalsCommand none
+AuthorizedPrincipalsCommandUser none
+HostKeyAgent none
+KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521
+CASignatureAlgorithms ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+HostbasedAcceptedAlgorithms ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,webauthn-sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+HostKeyAlgorithms ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,webauthn-sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+PubkeyAcceptedAlgorithms ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,webauthn-sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+SshdSessionPath /usr/libexec/openssh/sshd-session
+SshdAuthPath /usr/libexec/openssh/sshd-auth
+PerSourcePenaltyExemptList none
+LogLevel INFO
+SyslogFacility AUTH
+AuthorizedKeysFile .ssh/authorized_keys
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_mldsa44_ed25519_key
+AuthenticationMethods any
+ChannelTimeout none
+subsystem sftp /usr/libexec/openssh/sftp-server
+maxstartups 10:30:100
+persourcemaxstartups none
+persourcenetblocksize 32:128
+PermitTunnel no
+ipqos ef cs0
+rekeylimit 0 0
+permitopen any
+permitlisten any
+PermitUserEnvironment no
+pubkeyauthoptions none
+persourcepenalties crash:90.000000 authfail:5.000000 noauth:1.000000 invaliduser:5.000000 grace-exceeded:10.000000 refuseconnection:10.000000 max:600.000000 min:15.000000 max-sources4:65536 max-sources6:65536 overflow:permissive overflow6:permissive
+```
+
 # 2026.7.7 kernel 6.18.38 和 kernel 7.1.3
 ## kernel 6.18.38
 - 名称 : `kernel`
