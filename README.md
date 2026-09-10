@@ -1,5 +1,10 @@
 # RPM软件
 
+# 2026.9.10
+- 名称 : `VMware workstation Pro`
+- 版本 : `26H1u1`
+- 版本说明 : `https://techdocs.broadcom.com/us/en/vmware-cis/desktop-hypervisors/workstation-pro/26H1/release-notes/vmware-workstation-pro-26h1u1-release-notes.html` 
+
 # 2026.7.8 openssh 10.4p1
 - 名称 : `Openssh`
 - 版本 : `10.4p1` 
