@@ -1,5 +1,10 @@
 # RPM软件
 
+# 2026.9.17 librdkafka 2.15.1 for centos 9
+- 名称 : `librdkafka`
+- 版本 : `2.15.1`
+- 说明 : `kcat`(原`kafkacat`)依赖的库文件。EPEL提供的是1.6版本。2.15.1版本支持kraft
+
 # 2026.9.10
 - 名称 : `VMware workstation Pro`
 - 版本 : `26H1u1`
