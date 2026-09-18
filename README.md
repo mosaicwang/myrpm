@@ -1,10 +1,43 @@
 # RPM软件
 
 # 2026.9.17 librdkafka 2.15.1 for centos 9
+`librdkafka`是`kcat`(原`kafkacat`)依赖的库文件。EPEL提供的是1.6版本。GIT的最新版本是`2.15.1`
 - 名称 : `librdkafka`
 - 版本 : `2.15.1`
-- 说明 : `kcat`(原`kafkacat`)依赖的库文件。EPEL提供的是1.6版本。2.15.1版本支持kraft
+- GIT : `https://github.com/confluentinc/librdkafka`
+- 构建为RPM : `rpmbuild -bb --nodebuginfo ~/rpmbuild/SPECS/librdkafka.spec`
+- 安装 :
 
+1.安装kcat (来自EPEL仓库)
+```
+dnf install kafkacat
+```
+输出如下 :
+```
+=====================================================================================================================================
+ Package                        Architecture               Version                             Repository                       Size
+=====================================================================================================================================
+Installing:
+ kcat                           x86_64                     1.7.1-1.el9                         epel-aliyun                      39 k
+Installing dependencies:
+ librdkafka                     x86_64                     1.6.1-102.el9                       appstream                       662 k
+```
+2.更新librdkafka
+```
+dnf install ./librdkafka1-2.15.1-1.el9.x86_64.rpm
+```
+输出如下 :
+```
+=====================================================================================================================================
+ Package                         Architecture               Version                           Repository                        Size
+=====================================================================================================================================
+Installing:
+ librdkafka1                     x86_64                     2.15.1-1.el9                      @commandline                     1.4 M
+     replacing  librdkafka.x86_64 1.6.1-102.el9
+Installing dependencies:
+ cyrus-sasl                      x86_64                     2.1.27-21.el9                     baseos                            73 k
+
+```
 # 2026.9.10
 - 名称 : `VMware workstation Pro`
 - 版本 : `26H1u1`
